@@ -28,23 +28,28 @@ public partial class Registration : System.Web.UI.Page
         string phone = phoneNumTextBox.Text;
         string username = usernameTextBox.Text;
         string password = passwordTextBox.Text;
-
+        string tablename = null;
         int userRole = 0;
         switch (role)
         {
             case "Administrator":
+                tablename = "Administrators";
                 userRole = 1;
                 break;
             case "Student Executive":
+                tablename = "StudentExecutives";
                 userRole = 2;
                 break;
             case "Faculty Mentor":
+                tablename = "FacultyMentors";
                 userRole = 3;
                 break;
             case "Participant":
+                tablename = "Participants";
                 userRole = 5;
                 break;
             case "Sponsor":
+                tablename = "Sponsors";
                 userRole = 4;
                 break;
             default:
@@ -69,6 +74,9 @@ public partial class Registration : System.Web.UI.Page
         {
             cmd.ExecuteNonQuery();
             Response.Write("<script>alert(\"Registration successful\"); window.location.href = '" + role + ".aspx';</script>");
+            query = "INSERT INTO " + tablename + " (username) VALUES ('" + username + "');";
+            cmd = new SqlCommand(query, conn);
+            cmd.ExecuteNonQuery();
         }
         catch (SqlException ex)
         {

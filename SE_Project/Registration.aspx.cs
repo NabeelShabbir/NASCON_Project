@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Runtime.Remoting.Messaging;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -57,6 +58,7 @@ public partial class Registration : System.Web.UI.Page
                 break;
         }
 
+        // Protects against SQL Injection attacks
         string query = "INSERT INTO AllUsers (username, fullname, password, email, phone, userRole) " +
                    "VALUES (@username, @fullname, @password, @email, @phone, @userRole)";
 
@@ -69,14 +71,20 @@ public partial class Registration : System.Web.UI.Page
         cmd.Parameters.AddWithValue("@phone", phone);
         cmd.Parameters.AddWithValue("@userRole", userRole);
 
+        Session["username"] = username;
+        Session["fullname"] = name;
+        Session["password"] = password;
+        Session["email"] = email;
+        Session["phone"] = phone;
 
         try
         {
             cmd.ExecuteNonQuery();
-            Response.Write("<script>alert(\"Registration successful\"); window.location.href = '" + role + ".aspx';</script>");
+            Response.Write("<script>alert(\"Registration successful\");</script>");
             query = "INSERT INTO " + tablename + " (username) VALUES ('" + username + "');";
             cmd = new SqlCommand(query, conn);
             cmd.ExecuteNonQuery();
+            Response.Redirect(role + ".aspx");
         }
         catch (SqlException ex)
         {

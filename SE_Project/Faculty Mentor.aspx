@@ -10,7 +10,10 @@
     <form id="form1" runat="server">
         <div>
             <h1>Faculty Mentor Page</h1>
-
+            <p>Name: <asp:Label ID="nameLabel" runat="server"/></p>
+            <p>Username: <asp:Label ID="usernameLabel" runat="server"/></p>
+            <p>Email: <asp:Label ID="emailLabel" runat="server"/></p>
+            <p>Phone: <asp:Label ID="phoneLabel" runat="server"/></p>
         </div>
     </form>
 </body>

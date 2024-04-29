@@ -29,11 +29,21 @@ CREATE TABLE Participants (
 	
 );
 
-CREATE TABLE StudentExecutives (
-	username VARCHAR(40) NOT NULL,
-	studentRole VARCHAR(40),
-	FOREIGN KEY (username) REFERENCES AllUsers(username),
+CREATE TABLE StudentBodies (
+	studentBodyID INT PRIMARY KEY,
 );
+
+CREATE TABLE StudentExecutives (
+	username VARCHAR(40) PRIMARY KEY NOT NULL,
+	assignedevent VARCHAR(40) NOT NULL,
+	batch INT NOT NULL, --can be 19, 20, 21, 22 etc.
+	studentRole VARCHAR(40) NOT NULL,
+	studentBodyID INT, -- Add a foreign key reference to the StudentBodies table
+    FOREIGN KEY (username) REFERENCES AllUsers(username),
+    FOREIGN KEY (studentBodyID) REFERENCES StudentBodies(studentBodyID)
+);
+
+
 
 CREATE TABLE FacultyMentors (
 	username VARCHAR(40) NOT NULL,
@@ -43,9 +53,31 @@ CREATE TABLE FacultyMentors (
 
 CREATE TABLE Sponsors (
 	username VARCHAR(40) NOT NULL,
-	company VARCHAR(40),
-	cnic VARCHAR(13),
+	company VARCHAR(40) NOT NULL,
+	cnic VARCHAR(13) NOT NULL,
+	category VARCHAR(40) NOT NULL,
+	package VARCHAR(10) NOT NULL,
 	FOREIGN KEY (username) REFERENCES AllUsers(username),
+	FOREIGN KEY (category) REFERENCES Categories(categoryname),
+);
+
+CREATE TABLE Categories (
+	categoryname VARCHAR(40) PRIMARY KEY,
+	categorymentor VARCHAR(40) NOT NULL,
+	FOREIGN KEY (categorymentor) REFERENCES AllUsers (username),
+);
+
+CREATE TABLE Events (
+	eventname VARCHAR(40) PRIMARY KEY,
+	eventdate DATE NOT NULL,
+	eventtime TIME,
+	eventvenue VARCHAR(40) NOT NULL,
+	eventmentor VARCHAR(40) NOT NULL,
+	studenthead VARCHAR(40) NOT NULL,
+	eventcategory VARCHAR(40) NOT NULL,
+	FOREIGN KEY (eventmentor) REFERENCES AllUsers (username),
+	FOREIGN KEY (studenthead) REFERENCES AllUsers (username),
+	FOREIGN KEY (eventcategory) REFERENCES Categories (categoryname),
 );
 
 -- SELECT * FROM AllUsers INNER JOIN Participants ON AllUsers.username = Participants.username WHERE AllUsers.username = 'hishhasan' AND AllUsers.password = 'hasan123';

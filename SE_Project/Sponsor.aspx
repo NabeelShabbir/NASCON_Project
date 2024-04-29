@@ -14,6 +14,15 @@
             <p>Username: <asp:Label ID="usernameLabel" runat="server"/></p>
             <p>Email: <asp:Label ID="emailLabel" runat="server"/></p>
             <p>Phone: <asp:Label ID="phoneLabel" runat="server"/></p>
+
+            <%-- 
+                 There should be an option for sponsors from where they can register themselves.
+                 Sponsor can enter name of company, name of representative, CNIC and name of the
+                category for which they are willing to sponsor.
+                 There are three packages (Bronze for Rs 25000, Silver for Rs 60000 and Gold for Rs
+                100000) from which sponsor can select any one of the packages.
+                --%>
+
         </div>
     </form>
 </body>

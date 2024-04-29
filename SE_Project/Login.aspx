@@ -26,7 +26,7 @@
 
             <br />
             <p>Don't have an Account? You can Register Here:</p>
-            <a href="#">Registration Page</a>
+            <a href="ChooseRegistrationRole.aspx">Registration Page</a>
 
         </div>
     </form>

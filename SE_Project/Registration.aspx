@@ -9,6 +9,20 @@
 <body>
     <form id="form1" runat="server">
         <div>
+            <asp:Label ID="headingLabel" Text="Registration" runat="server" />
+
+            <p>Enter Full Name</p>
+            <asp:TextBox ID="fullnameTextBox" Text="" runat="server" />
+            <p>Enter Email</p>
+            <asp:TextBox ID="emailTextBox" Text="" runat="server" />
+            <p>Enter Phone Number</p>
+            <asp:TextBox ID="phoneNumTextBox" Text="" runat="server" />            
+            <p>Enter Username</p>
+            <asp:TextBox ID="usernameTextBox" Text="" runat="server" />            
+            <p>Enter Password</p>
+            <asp:TextBox ID="passwordTextBox" Text="" runat="server" />
+
+            <asp:Button ID="registerButton" Text="Register" runat="server" OnClick="registerEventMethod" />
         </div>
     </form>
 </body>

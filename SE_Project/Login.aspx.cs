@@ -17,6 +17,8 @@ public partial class Login : System.Web.UI.Page
     {
         bool roleSelected = false;
         string role = null;
+
+
         foreach (RadioButton radioButton in this.Controls.OfType<RadioButton>())
         {
             if (radioButton.Checked && radioButton.GroupName == "userRole")
@@ -64,11 +66,11 @@ public partial class Login : System.Web.UI.Page
             SqlDataReader reader = cmd.ExecuteReader();
             if (reader.Read() && reader.HasRows)
             {
-                Response.Write("<script>alert(Login Successful!);</script>");
+                Response.Write("<script>alert('Login Successful!');</script>");
                 Response.Redirect(role + ".aspx");
             } else
             {
-                Response.Write("<script>alert(Login Invalid, Try Again.);</script>");
+                Response.Write("<script>alert('Login Invalid, Try Again.');</script>");
             }
 
             

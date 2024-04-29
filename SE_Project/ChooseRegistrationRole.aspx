@@ -4,7 +4,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
+    <title>Choose Role</title>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -16,7 +16,7 @@
              <asp:RadioButton ID="participantRadioButton" Text="Participant" GroupName="userRole"  runat="server" />
              <asp:RadioButton ID="sponsorRadioButton" Text="Sponsor" GroupName="userRole"  runat="server" />
              <br />
-            <asp:Button ID="roleButton" Text="Submit" OnClick="roleButton_Click" runat="server" />
+            <asp:Button ID="roleButton" Text="Submit" OnClick="chooseRoleButton" runat="server" />
         </div>
     </form>
 </body>

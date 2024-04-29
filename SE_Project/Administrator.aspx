@@ -14,6 +14,20 @@
             <p>Username: <asp:Label ID="usernameLabel" runat="server"/></p>
             <p>Email: <asp:Label ID="emailLabel" runat="server"/></p>
             <p>Phone: <asp:Label ID="phoneLabel" runat="server"/></p>
+
+<%--            
+             Application should contain separate portal for administration.
+             There should be an option to create new Admin accounts, delete and modify existing
+            ones.
+             Admin can add, delete or modify faculty Mentors (EMP_ID, NAME, Category
+            Assigned).
+             Admin can also add, delete or modify student executives.
+             New event can be added or deleted by the Admin. Event should contain event name,
+            event date, event time, venue, assigned faculty mentor and student head.
+             Admin can also add or delete Sponsors.--%>
+
+
+            <p>Create an Event?</p>
         </div>
     </form>
 </body>

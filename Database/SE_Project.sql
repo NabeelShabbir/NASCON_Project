@@ -82,13 +82,16 @@ CREATE TABLE StudentBodyMembers (
 --INSERT StudentBodyMembers (studentBodyID, username, studentRole) VALUES (0, 'hisham', 'President');
 CREATE TABLE Sponsors (
 	username VARCHAR(40) NOT NULL PRIMARY KEY,
-	company VARCHAR(40) NOT NULL,
-	cnic VARCHAR(13) NOT NULL,
-	category VARCHAR(40) NOT NULL,
-	package VARCHAR(10) NOT NULL,
+	company VARCHAR(40),
+	cnic VARCHAR(13),
+	category VARCHAR(40),
+	package VARCHAR(10),
 	FOREIGN KEY (username) REFERENCES AllUsers(username),
 	FOREIGN KEY (category) REFERENCES Categories(categoryname),
 );
+
+
+
 CREATE TABLE Events (
     eventID INT PRIMARY KEY,
     eventName VARCHAR(100) UNIQUE,

@@ -6,12 +6,16 @@ use NASCON_MS;
 --drop table AllUsers;
 --drop table Participants;
 --drop table Sponsors;
---drop table StudentExecutives;
 --drop table FacultyMentors;
 --drop table Administrators;
 --drop table Categories;
 --drop table Events;
 --drop table StudentBodies;
+--drop table StudentExecutives;
+--drop table StudentBodyMembers;
+
+
+
 
 CREATE TABLE AllUsers (
 	userID INT UNIQUE IDENTITY(1, 1) NOT NULL,
@@ -28,25 +32,33 @@ CREATE TABLE Administrators (
 	FOREIGN KEY (username) REFERENCES AllUsers(username),
 );
 
+-- Insert into Admin before doing anything.
+INSERT AllUsers (username, fullname, password, email, phone, userRole) VALUES ('Admin1', 'Amir Rehman', 'amirAdmin123', 'amir@nu.edu.pk', '0123789456', 1);
+INSERT Administrators (username) VALUES ('Admin1');
+
+
 CREATE TABLE Participants (
 	username VARCHAR(40) NOT NULL PRIMARY KEY,
 	roll_no VARCHAR(40) NOT NULL,
 	FOREIGN KEY (username) REFERENCES AllUsers(username),
 );
 
---CREATE TABLE StudentBodies (
---	studentBodyID INT PRIMARY KEY,
---);
+CREATE TABLE FacultyMentors (
+	username VARCHAR(40) NOT NULL PRIMARY KEY,
+	FOREIGN KEY (username) REFERENCES AllUsers(username),
 
---CREATE TABLE StudentExecutives (
---	username VARCHAR(40) PRIMARY KEY NOT NULL,
---	assignedevent VARCHAR(40) NOT NULL,
---	batch INT NOT NULL, --can be 19, 20, 21, 22 etc.
---	studentRole VARCHAR(40) NOT NULL,
---	studentBodyID INT, -- Add a foreign key reference to the StudentBodies table
---    FOREIGN KEY (username) REFERENCES AllUsers(username),
---    FOREIGN KEY (studentBodyID) REFERENCES StudentBodies(studentBodyID)
---);
+);
+CREATE TABLE Categories (
+    categoryName VARCHAR(40) PRIMARY KEY,
+	mentorUsername VARCHAR(40),
+    secretaryUsername VARCHAR(40), -- Username of the secretary responsible for the category
+    --FOREIGN KEY (secretaryUsername) REFERENCES StudentExecutives(username),
+    FOREIGN KEY (mentorUsername) REFERENCES FacultyMentors(username),
+);
+ALTER TABLE Categories 
+ADD CONSTRAINT FK_secretaryUName
+FOREIGN KEY (secretaryUsername) REFERENCES StudentExecutives(username);
+
 CREATE TABLE StudentExecutives (
     username VARCHAR(40) PRIMARY KEY,
     studentRole VARCHAR(40),
@@ -65,6 +77,18 @@ CREATE TABLE StudentBodyMembers (
     FOREIGN KEY (studentBodyID) REFERENCES StudentBodies(studentBodyID),
     FOREIGN KEY (username) REFERENCES StudentExecutives(username)
 );
+--INSERT StudentBodies (studentBodyID, categoryName) VALUES (0, 'EE');
+--INSERT StudentExecutives (username, studentBodyID, studentRole) VALUES ('hisham', 0, 'President');
+--INSERT StudentBodyMembers (studentBodyID, username, studentRole) VALUES (0, 'hisham', 'President');
+CREATE TABLE Sponsors (
+	username VARCHAR(40) NOT NULL PRIMARY KEY,
+	company VARCHAR(40) NOT NULL,
+	cnic VARCHAR(13) NOT NULL,
+	category VARCHAR(40) NOT NULL,
+	package VARCHAR(10) NOT NULL,
+	FOREIGN KEY (username) REFERENCES AllUsers(username),
+	FOREIGN KEY (category) REFERENCES Categories(categoryname),
+);
 CREATE TABLE Events (
     eventID INT PRIMARY KEY,
     eventName VARCHAR(100) UNIQUE,
@@ -78,33 +102,31 @@ CREATE TABLE Events (
     FOREIGN KEY (categoryName) REFERENCES Categories(categoryName),
 );
 
-CREATE TABLE Categories (
-    categoryName VARCHAR(40) PRIMARY KEY,
-	mentorUsername VARCHAR(40),
-    secretaryUsername VARCHAR(40), -- Username of the secretary responsible for the category
-    --FOREIGN KEY (secretaryUsername) REFERENCES StudentExecutives(username),
-    FOREIGN KEY (mentorUsername) REFERENCES FacultyMentors(username),
-);
-ALTER TABLE Categories 
-ADD CONSTRAINT FK_secretaryUName
-FOREIGN KEY (secretaryUsername) REFERENCES StudentExecutives(username);
+
+---------------------------------------------------------------------------
+--DECLARE @tableName NVARCHAR(128) = 'StudentBodies'; -- Specify your table name here
+
+--DECLARE @sql NVARCHAR(MAX) = '';
+
+--SELECT @sql += 'ALTER TABLE ' + OBJECT_SCHEMA_NAME(parent_object_id) + '.' + OBJECT_NAME(parent_object_id) + 
+--               ' DROP CONSTRAINT ' + name + ';' + CHAR(13)
+--FROM sys.foreign_keys
+--WHERE referenced_object_id = OBJECT_ID(@tableName);
+
+--PRINT @sql; -- Optionally print the generated SQL statements for verification
+
+---- Execute the dynamic SQL to drop the foreign key constraints
+--EXEC sp_executesql @sql;
+---------------------------------------------------------------------------
 
 
-CREATE TABLE FacultyMentors (
-	username VARCHAR(40) NOT NULL PRIMARY KEY,
-	FOREIGN KEY (username) REFERENCES AllUsers(username),
+-- Make All the 5 Categories first: EE, CS, Business, Social, Sports.
+INSERT Categories (categoryName) VALUES ('Social');
 
-);
 
-CREATE TABLE Sponsors (
-	username VARCHAR(40) NOT NULL PRIMARY KEY,
-	company VARCHAR(40) NOT NULL,
-	cnic VARCHAR(13) NOT NULL,
-	category VARCHAR(40) NOT NULL,
-	package VARCHAR(10) NOT NULL,
-	FOREIGN KEY (username) REFERENCES AllUsers(username),
-	FOREIGN KEY (category) REFERENCES Categories(categoryname),
-);
+
+
+
 
 --CREATE TABLE Categories (
 --	categoryname VARCHAR(40) PRIMARY KEY,
@@ -138,9 +160,7 @@ SELECT * FROM StudentBodyMembers;
 SELECT * FROM Categories;
 SELECT * FROM Events;
 
+DELETE FROM AllUsers WHERE username = '0presi';
 
--- Insert into Admin before doing anything.
-INSERT AllUsers (username, fullname, password, email, phone, userRole) VALUES ('Admin1', 'Amir Rehman', 'amirAdmin123', 'amir@nu.edu.pk', '0123789456', 1);
-INSERT Administrators (username) VALUES ('Admin1');
 
 -- INSERT AllUsers (username, fullname, password, email, phone) VALUES ();

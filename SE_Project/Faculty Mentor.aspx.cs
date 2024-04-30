@@ -86,5 +86,10 @@ public partial class Faculty_Mentor : System.Web.UI.Page
         // Once you have the data, populate the studentExecutivesDetails div with the information
     }
 
+    protected void addStudentBodyEventMethod(object sender, EventArgs e)
+    {
+        Response.Redirect("makeStudentBody.aspx");
+    }
+
 
 }

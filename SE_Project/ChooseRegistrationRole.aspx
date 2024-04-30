@@ -11,7 +11,7 @@
         <div>
              <p>Choose one of the following roles to register as:</p>
  
-             <asp:RadioButton ID="studentexecRadioButton" Text="Student Executive" GroupName="userRole"  runat="server" />
+             <%--<asp:RadioButton ID="studentexecRadioButton" Text="Student Executive" GroupName="userRole"  runat="server" />--%>
              <asp:RadioButton ID="facultyRadioButton" Text="Faculty Mentor" GroupName="userRole"  runat="server" />
              <asp:RadioButton ID="participantRadioButton" Text="Participant" GroupName="userRole"  runat="server" />
              <asp:RadioButton ID="sponsorRadioButton" Text="Sponsor" GroupName="userRole"  runat="server" />

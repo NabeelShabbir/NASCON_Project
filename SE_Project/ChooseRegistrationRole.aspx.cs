@@ -17,11 +17,12 @@ public partial class ChooseRegistrationRole : System.Web.UI.Page
         bool roleSelected = false;
         String role = null;
 
-        if (studentexecRadioButton.Checked)
-        {
-            role = studentexecRadioButton.Text;
-            roleSelected = true;
-        } else if (facultyRadioButton.Checked)
+        //if (studentexecRadioButton.Checked)
+        //{
+        //    role = studentexecRadioButton.Text;
+        //    roleSelected = true;
+        //} else
+        if (facultyRadioButton.Checked)
         {
             role = facultyRadioButton.Text;
             roleSelected = true;

@@ -34,6 +34,10 @@
                 --%>
 
             <h3>Manage Student Executives</h3>
+            <asp:Button ID="addStudentBodyButton" runat="server" Text="Add a Student Body" OnClick="addStudentBodyEventMethod" />
+
+            
+            <p>See Student Executive Details</p>
             <asp:DropDownList ID="presidentsDropDownList" runat="server" AutoPostBack="true" OnSelectedIndexChanged="presidentsDropDownList_SelectedIndexChanged">
                 <asp:ListItem Text="-- Select President --" Value="" />
             </asp:DropDownList>

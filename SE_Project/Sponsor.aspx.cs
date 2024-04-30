@@ -12,9 +12,13 @@ public partial class Sponsor : System.Web.UI.Page
         if (!IsPostBack)
         {
             usernameLabel.Text = Session["username"].ToString();
-            nameLabel.Text = Session["fullname"].ToString();
+            repNameLabel.Text = Session["fullname"].ToString();
             emailLabel.Text = Session["email"].ToString();
             phoneLabel.Text = Session["phone"].ToString();
+            companyNameLabel.Text = Session["company"].ToString();
+            categoryLabel.Text = Session["category"].ToString();
+            packageLabel.Text = Session["package"].ToString();
+            cnicLabel.Text = Session["cnic"].ToString();
         }
     }
 }

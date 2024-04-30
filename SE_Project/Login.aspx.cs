@@ -103,7 +103,8 @@ public partial class Login : System.Web.UI.Page
                 Response.Write("<script>alert(\"Login failed. Exception:" + ex.Message.Replace("'", "\\'") + "\");</script>");
             }
 
-
+            cmd.Dispose();
+            conn.Close();
 
         } else
         {

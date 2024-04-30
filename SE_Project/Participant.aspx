@@ -14,6 +14,9 @@
             <p>Username: <asp:Label ID="usernameLabel" runat="server"/></p>
             <p>Email: <asp:Label ID="emailLabel" runat="server"/></p>
             <p>Phone: <asp:Label ID="phoneLabel" runat="server"/></p>
+
+
+
         </div>
     </form>
 </body>

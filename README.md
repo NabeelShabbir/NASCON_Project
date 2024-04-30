@@ -10,5 +10,6 @@
 3. Rebuild Solution.
 4. Make the SQL files in SQL Server execute.
 5. Connect to the SQL Server Database.
+6. In Web.config file, change the connectionString to match your database's
 
  That should be all you need. 

@@ -84,7 +84,10 @@ public partial class Registration : System.Web.UI.Page
             query = "INSERT INTO " + tablename + " (username) VALUES ('" + username + "');";
             cmd = new SqlCommand(query, conn);
             cmd.ExecuteNonQuery();
-            Response.Redirect(role + ".aspx");
+
+            if (userRole != 4)
+                Response.Redirect(role + ".aspx");
+
         }
         catch (SqlException ex)
         {

@@ -188,3 +188,9 @@ INSERT INTO FacultyMentors (username)
 VALUES ('user1'), ('user2'), ('user3');
 
 SELECT AU.username, AU.fullname, password, email, phone, company, cnic, category, package FROM AllUsers AU, Sponsors S WHERE AU.username = 'repp_sponsed';
+
+
+SELECT sbm.username, sbm.studentRole
+FROM StudentBodyMembers sbm
+JOIN StudentBodyMembers president ON sbm.studentBodyID = president.studentBodyID
+WHERE president.username = '0presi';

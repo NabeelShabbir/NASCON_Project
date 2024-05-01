@@ -42,9 +42,24 @@
                 <asp:ListItem Text="-- Select President --" Value="" />
             </asp:DropDownList>
 
-            <div id="studentExecutivesDetails" runat="server">
-                <!-- Details about selected Student Executive Body will be displayed here -->
-            </div>
+            <asp:GridView ID="studentExecutivesGridView" runat="server" AutoGenerateColumns="False">
+                <Columns>
+                    <asp:BoundField DataField="studentRole" HeaderText="Role" />
+                    <asp:BoundField DataField="username" HeaderText="Username" />
+                </Columns>
+            </asp:GridView>
+
+            <%--<div id="studentExecutivesDetails" runat="server">
+                <p>Role    |   Full Name    |   Username  |  </p>
+                <p>President: </p> <asp:Label ID="presFullNameLabel" runat="server" /> <asp:Label ID="presUsernameLabel" runat="server" />
+                <p>Vice President: </p> <asp:Label ID="vicepresFullNameLabel" runat="server" /> <asp:Label ID="vicepresUsernameLabel" runat="server" />
+                <p>Secretary: </p> <asp:Label ID="secretaryFullNameLabel" runat="server" /> <asp:Label ID="secretaryUsernameLabel" runat="server" />
+                <p>Member 1: </p> <asp:Label ID="mem1FullNameLabel" runat="server" /> <asp:Label ID="mem1UsernameLabel" runat="server" />
+                <p>Member 2: </p> <asp:Label ID="mem2FullNameLabel" runat="server" /> <asp:Label ID="mem2UsernameLabel" runat="server" />
+                <p>Member 3: </p> <asp:Label ID="mem3FullNameLabel" runat="server" /> <asp:Label ID="mem3UsernameLabel" runat="server" />
+                <p>Member 4: </p> <asp:Label ID="mem4FullNameLabel" runat="server" /> <asp:Label ID="mem4UsernameLabel" runat="server" />
+                <p>Member 5: </p> <asp:Label ID="mem5FullNameLabel" runat="server" /> <asp:Label ID="mem5UsernameLabel" runat="server" />
+            </div>--%>
 
 
 

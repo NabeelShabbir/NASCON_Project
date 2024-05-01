@@ -68,17 +68,19 @@ INSERT Categories (categoryName) VALUES
 ('Sports'),
 ('Social');
 
+
+CREATE TABLE StudentBodies (
+    studentBodyID INT PRIMARY KEY,
+    categoryName VARCHAR(40),
+	FOREIGN KEY (categoryName) REFERENCES Categories(categoryName),
+);
 CREATE TABLE StudentExecutives (
     username VARCHAR(40) PRIMARY KEY,
     studentRole VARCHAR(40),
     studentBodyID INT, -- Foreign key reference to StudentBodies table
     FOREIGN KEY (studentBodyID) REFERENCES StudentBodies(studentBodyID)
 );
-CREATE TABLE StudentBodies (
-    studentBodyID INT PRIMARY KEY,
-    categoryName VARCHAR(40),
-	FOREIGN KEY (categoryName) REFERENCES Categories(categoryName),
-);
+
 CREATE TABLE StudentBodyMembers (
     studentBodyID INT,
     username VARCHAR(40),

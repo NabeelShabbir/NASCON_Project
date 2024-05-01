@@ -177,3 +177,5 @@ VALUES ('user1', 'John Doe', 'password1', 'john.doe@example.com', '1234567890', 
 -- Inserting sample data into the FacultyMentors table
 INSERT INTO FacultyMentors (username)
 VALUES ('user1'), ('user2'), ('user3');
+
+SELECT AU.username, AU.fullname, password, email, phone, company, cnic, category, package FROM AllUsers AU, Sponsors S WHERE AU.username = 'repp_sponsed';

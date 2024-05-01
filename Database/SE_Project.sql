@@ -116,6 +116,15 @@ CREATE TABLE Events (
     --FOREIGN KEY (categoryName) REFERENCES Categories(categoryName),
 );
 
+CREATE TABLE Tickets (
+    ticketID INT PRIMARY KEY IDENTITY(1,1),
+    eventID INT,
+    username VARCHAR(40),
+    registrationDate DATETIME DEFAULT GETDATE(),
+    --FOREIGN KEY (eventID) REFERENCES Events(eventID),
+    --FOREIGN KEY (username) REFERENCES AllUsers(username)
+);
+
 
 ---------------------------------------------------------------------------
 --DECLARE @tableName NVARCHAR(128) = 'StudentBodies'; -- Specify your table name here

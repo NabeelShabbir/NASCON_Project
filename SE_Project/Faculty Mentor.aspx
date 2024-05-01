@@ -10,6 +10,8 @@
     <form id="form1" runat="server">
         <div>
             <h1>Faculty Mentor Page</h1>
+            <a href="Login.aspx">Login Page</a> | <a href="ChooseRegistrationRole.aspx">Registration Page</a>
+
             <p>Name: <asp:Label ID="nameLabel" runat="server"/></p>
             <p>Username: <asp:Label ID="usernameLabel" runat="server"/></p>
             <p>Email: <asp:Label ID="emailLabel" runat="server"/></p>
@@ -37,7 +39,8 @@
             <asp:Button ID="addStudentBodyButton" runat="server" Text="Add a Student Body" OnClick="addStudentBodyEventMethod" />
 
             
-            <p>See Student Executive Details</p>
+            <p><b>Student Executive Details</b></p>
+            <p>Select President of Student Body</p>
             <asp:DropDownList ID="presidentsDropDownList" runat="server" AutoPostBack="true" OnSelectedIndexChanged="presidentsDropDownList_SelectedIndexChanged">
                 <asp:ListItem Text="-- Select President --" Value="" />
             </asp:DropDownList>
@@ -46,6 +49,8 @@
                 <Columns>
                     <asp:BoundField DataField="studentRole" HeaderText="Role" />
                     <asp:BoundField DataField="username" HeaderText="Username" />
+                    <asp:BoundField DataField="fullname" HeaderText="Full Name" />
+                    <asp:BoundField DataField="password" HeaderText="Password" />
                 </Columns>
             </asp:GridView>
 

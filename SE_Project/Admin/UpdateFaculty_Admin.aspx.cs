@@ -18,7 +18,7 @@ public partial class UpdateFaculty_Admin : System.Web.UI.Page
             }
             else
             {
-                Response.Redirect("FacultyManager_Admin.aspx");
+                Response.Redirect("Admin/FacultyManager_Admin.aspx");
             }
         }
     }
@@ -66,6 +66,6 @@ public partial class UpdateFaculty_Admin : System.Web.UI.Page
         }
 
         // Redirect back to FacultyManager_Admin.aspx after updating
-        Response.Redirect("FacultyManager_Admin.aspx");
+        Response.Redirect("Admin/FacultyManager_Admin.aspx");
     }
 }

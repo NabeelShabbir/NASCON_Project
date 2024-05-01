@@ -35,7 +35,7 @@ public partial class FacultyManager_Admin : System.Web.UI.Page
         Button btnUpdate = (Button)sender;
         string username = btnUpdate.CommandArgument;
         // Redirect to FacultyDetails.aspx with the username as a query parameter
-        Response.Redirect("UpdateFaculty_Admin.aspx?username=" + username);
+        Response.Redirect("Admin/UpdateFaculty_Admin.aspx?username=" + username);
     }
 
 

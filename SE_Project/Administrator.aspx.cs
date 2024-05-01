@@ -21,6 +21,6 @@ public partial class Administrator : System.Web.UI.Page
 
     protected void Button1_Click(object sender, EventArgs e)
     {
-        Response.Redirect("FacultyManager_Admin.aspx");
+        Response.Redirect("Admin/FacultyManager_Admin.aspx");
     }
 }

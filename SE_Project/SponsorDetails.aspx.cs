@@ -94,9 +94,9 @@ public partial class SponsorDetails : System.Web.UI.Page
 
     protected void PopulatePackagesDropDownList()
     {
-        // Add predefined categories to the DropDownList
-        categoriesDropDownList.Items.Add(new ListItem("Gold - Rs 100,000", "Gold"));
-        categoriesDropDownList.Items.Add(new ListItem("Silver - Rs 60,000", "Silver"));
-        categoriesDropDownList.Items.Add(new ListItem("Bronze - Rs 25,000", "Bronze"));
+        // Add predefined packages to the DropDownList
+        packagesDropDownList.Items.Add(new ListItem("Gold - Rs 100,000", "Gold"));
+        packagesDropDownList.Items.Add(new ListItem("Silver - Rs 60,000", "Silver"));
+        packagesDropDownList.Items.Add(new ListItem("Bronze - Rs 25,000", "Bronze"));
     }
 }

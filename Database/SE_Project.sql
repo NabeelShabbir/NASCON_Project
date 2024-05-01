@@ -39,7 +39,7 @@ INSERT Administrators (username) VALUES ('Admin1');
 
 CREATE TABLE Participants (
 	username VARCHAR(40) NOT NULL PRIMARY KEY,
-	roll_no VARCHAR(40) NOT NULL,
+	roll_no VARCHAR(40),
 	FOREIGN KEY (username) REFERENCES AllUsers(username),
 );
 

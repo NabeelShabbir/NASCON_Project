@@ -59,6 +59,16 @@ ALTER TABLE Categories
 ADD CONSTRAINT FK_secretaryUName
 FOREIGN KEY (secretaryUsername) REFERENCES StudentExecutives(username);
 
+-- Important to do before anything
+-- Make All the 5 Categories first: EE, CS, Business, Social, Sports.
+INSERT Categories (categoryName) VALUES 
+('CS'),
+('EE'),
+('Business'),
+('Sports'),
+('Social');
+
+
 CREATE TABLE StudentExecutives (
     username VARCHAR(40) PRIMARY KEY,
     studentRole VARCHAR(40),
@@ -123,14 +133,6 @@ CREATE TABLE Events (
 ---------------------------------------------------------------------------
 
 
--- Make All the 5 Categories first: EE, CS, Business, Social, Sports.
-INSERT Categories (categoryName) VALUES ('Social');
-
-
-
-
-
-
 --CREATE TABLE Categories (
 --	categoryname VARCHAR(40) PRIMARY KEY,
 --	categorymentor VARCHAR(40) NOT NULL,
@@ -163,7 +165,10 @@ SELECT * FROM StudentBodyMembers;
 SELECT * FROM Categories;
 SELECT * FROM Events;
 
-DELETE FROM AllUsers WHERE username = '0presi';
+DELETE FROM AllUsers WHERE username = 'repp_sponsed';
+DELETE FROM Sponsors WHERE username = 'repp_sponsed';
 
+
+UPDATE Sponsors SET company = 'Big Sponsorship', cnic = '6110119463854', category = 'CS', package='Gold' WHERE username = 'repp_sponsed';
 
 -- INSERT AllUsers (username, fullname, password, email, phone) VALUES ();

@@ -10,10 +10,14 @@
     <form id="form1" runat="server">
         <div>
             <h1>Sponsor Page</h1>
-            <p>Name: <asp:Label ID="nameLabel" runat="server"/></p>
+            <p>Company Name: <asp:Label ID="companyNameLabel" runat="server"/></p>
+            <p>Representative Name: <asp:Label ID="repNameLabel" runat="server"/></p>
             <p>Username: <asp:Label ID="usernameLabel" runat="server"/></p>
-            <p>Email: <asp:Label ID="emailLabel" runat="server"/></p>
             <p>Phone: <asp:Label ID="phoneLabel" runat="server"/></p>
+            <p>Email: <asp:Label ID="emailLabel" runat="server"/></p>
+            <p>CNIC: <asp:Label ID="cnicLabel" runat="server"/></p>
+            <p>Category: <asp:Label ID="categoryLabel" runat="server"/></p>
+            <p>Package: <asp:Label ID="packageLabel" runat="server"/></p>
 
             <%-- 
                  There should be an option for sponsors from where they can register themselves.

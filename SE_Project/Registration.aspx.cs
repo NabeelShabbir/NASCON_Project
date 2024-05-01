@@ -85,8 +85,13 @@ public partial class Registration : System.Web.UI.Page
             cmd = new SqlCommand(query, conn);
             cmd.ExecuteNonQuery();
 
-            if (userRole != 4)
+            if (userRole == 4)
+            {
+                Response.Redirect("SponsorDetails.aspx");
+            } else
+            {
                 Response.Redirect(role + ".aspx");
+            }
 
         }
         catch (SqlException ex)

@@ -166,7 +166,11 @@ SELECT * FROM StudentBodyMembers;
 SELECT * FROM Categories;
 SELECT * FROM Events;
 
-DELETE FROM AllUsers WHERE username = '0presi';
+--UPDATE Categories SET secretaryUsername = NULL WHERE secretaryUsername = '2secr';
+--DELETE FROM AllUsers WHERE userRole = 2;
+--DELETE FROM StudentExecutives WHERE studentBodyID = 2;
+--DELETE FROM StudentBodies where studentBodyID = 2;
+--DELETE FROM StudentBodyMembers WHERE studentBodyID = 2;
 
 
 -- INSERT AllUsers (username, fullname, password, email, phone) VALUES ();
@@ -187,4 +191,5 @@ SELECT AU.username, AU.fullname, password, email, phone, company, cnic, category
 SELECT sbm.username, sbm.studentRole
 FROM StudentBodyMembers sbm
 JOIN StudentBodyMembers president ON sbm.studentBodyID = president.studentBodyID
+JOIN AllUsers ON sbm.username = AllUsers.username
 WHERE president.username = '0presi';

@@ -37,7 +37,8 @@
             <asp:Button ID="addStudentBodyButton" runat="server" Text="Add a Student Body" OnClick="addStudentBodyEventMethod" />
 
             
-            <p>See Student Executive Details</p>
+            <p><b>Student Executive Details</b></p>
+            <p>Select President of Student Body</p>
             <asp:DropDownList ID="presidentsDropDownList" runat="server" AutoPostBack="true" OnSelectedIndexChanged="presidentsDropDownList_SelectedIndexChanged">
                 <asp:ListItem Text="-- Select President --" Value="" />
             </asp:DropDownList>
@@ -46,6 +47,8 @@
                 <Columns>
                     <asp:BoundField DataField="studentRole" HeaderText="Role" />
                     <asp:BoundField DataField="username" HeaderText="Username" />
+                    <asp:BoundField DataField="fullname" HeaderText="Full Name" />
+                    <asp:BoundField DataField="password" HeaderText="Password" />
                 </Columns>
             </asp:GridView>
 

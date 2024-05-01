@@ -167,3 +167,13 @@ DELETE FROM AllUsers WHERE username = '0presi';
 
 
 -- INSERT AllUsers (username, fullname, password, email, phone) VALUES ();
+
+-- Inserting sample data into the AllUsers table
+INSERT INTO AllUsers (username, fullname, password, email, phone, userRole)
+VALUES ('user1', 'John Doe', 'password1', 'john.doe@example.com', '1234567890', 3),
+       ('user2', 'Jane Smith', 'password2', 'jane.smith@example.com', '0987654321', 3),
+       ('user3', 'Alice Johnson', 'password3', 'alice.johnson@example.com', '5555555555', 3);
+
+-- Inserting sample data into the FacultyMentors table
+INSERT INTO FacultyMentors (username)
+VALUES ('user1'), ('user2'), ('user3');

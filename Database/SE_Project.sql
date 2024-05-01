@@ -134,14 +134,6 @@ CREATE TABLE Events (
 ---------------------------------------------------------------------------
 
 
--- Make All the 5 Categories first: EE, CS, Business, Social, Sports.
-INSERT Categories (categoryName) VALUES ('Social');
-
-
-
-
-
-
 --CREATE TABLE Categories (
 --	categoryname VARCHAR(40) PRIMARY KEY,
 --	categorymentor VARCHAR(40) NOT NULL,

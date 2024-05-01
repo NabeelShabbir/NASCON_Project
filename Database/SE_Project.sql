@@ -160,6 +160,7 @@ SELECT * FROM Administrators;
 SELECT * FROM Participants;
 SELECT * FROM FacultyMentors;
 SELECT * FROM Sponsors;
+
 SELECT * FROM StudentExecutives;
 SELECT * FROM StudentBodies;
 SELECT * FROM StudentBodyMembers;
@@ -172,7 +173,7 @@ SELECT * FROM Events;
 --DELETE FROM StudentBodies where studentBodyID = 2;
 --DELETE FROM StudentBodyMembers WHERE studentBodyID = 2;
 
-DELETE FROM AllUsers WHERE username = 'babeel';
+DELETE FROM AllUsers WHERE username = 'hishhasan';
 DELETE FROM AllUsers WHERE username = 'par1';
 
 

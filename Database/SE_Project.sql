@@ -59,6 +59,15 @@ ALTER TABLE Categories
 ADD CONSTRAINT FK_secretaryUName
 FOREIGN KEY (secretaryUsername) REFERENCES StudentExecutives(username);
 
+-- Important to do before anything
+-- Make All the 5 Categories first: EE, CS, Business, Social, Sports.
+INSERT Categories (categoryName) VALUES 
+('CS'),
+('EE'),
+('Business'),
+('Sports'),
+('Social');
+
 CREATE TABLE StudentExecutives (
     username VARCHAR(40) PRIMARY KEY,
     studentRole VARCHAR(40),

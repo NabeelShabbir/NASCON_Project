@@ -3,16 +3,16 @@ create database NASCON_MS;
 use NASCON_MS;
 
 
---drop table AllUsers;
---drop table Participants;
---drop table Sponsors;
---drop table FacultyMentors;
---drop table Administrators;
---drop table Categories;
---drop table Events;
---drop table StudentBodies;
---drop table StudentExecutives;
---drop table StudentBodyMembers;
+drop table AllUsers;
+drop table Participants;
+drop table Sponsors;
+drop table FacultyMentors;
+drop table Administrators;
+drop table Categories;
+drop table Events;
+drop table StudentBodies;
+drop table StudentExecutives;
+drop table StudentBodyMembers;
 
 
 
@@ -39,7 +39,7 @@ INSERT Administrators (username) VALUES ('Admin1');
 
 CREATE TABLE Participants (
 	username VARCHAR(40) NOT NULL PRIMARY KEY,
-	roll_no VARCHAR(40) NOT NULL,
+	roll_no VARCHAR(40),
 	FOREIGN KEY (username) REFERENCES AllUsers(username),
 );
 
@@ -112,8 +112,8 @@ CREATE TABLE Events (
     headUsername VARCHAR(40), -- Username of the head of the event
 	mentorUsername VARCHAR(40),
     categoryName VARCHAR(40), -- Foreign key reference to Categories table
-    FOREIGN KEY (headUsername) REFERENCES StudentExecutives(username),
-    FOREIGN KEY (categoryName) REFERENCES Categories(categoryName),
+    --FOREIGN KEY (headUsername) REFERENCES StudentExecutives(username),
+    --FOREIGN KEY (categoryName) REFERENCES Categories(categoryName),
 );
 
 
@@ -166,11 +166,16 @@ SELECT * FROM StudentBodyMembers;
 SELECT * FROM Categories;
 SELECT * FROM Events;
 
+<<<<<<< HEAD
 --UPDATE Categories SET secretaryUsername = NULL WHERE secretaryUsername = '2secr';
 --DELETE FROM AllUsers WHERE userRole = 2;
 --DELETE FROM StudentExecutives WHERE studentBodyID = 2;
 --DELETE FROM StudentBodies where studentBodyID = 2;
 --DELETE FROM StudentBodyMembers WHERE studentBodyID = 2;
+=======
+DELETE FROM AllUsers WHERE username = '0presi';
+DELETE FROM AllUsers WHERE username = 'par1';
+>>>>>>> af878b8c5d23aec11cfcfa698197e013c6509121
 
 
 -- INSERT AllUsers (username, fullname, password, email, phone) VALUES ();
@@ -191,5 +196,4 @@ SELECT AU.username, AU.fullname, password, email, phone, company, cnic, category
 SELECT sbm.username, sbm.studentRole
 FROM StudentBodyMembers sbm
 JOIN StudentBodyMembers president ON sbm.studentBodyID = president.studentBodyID
-JOIN AllUsers ON sbm.username = AllUsers.username
-WHERE president.username = '0presi';
+

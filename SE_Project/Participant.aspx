@@ -10,6 +10,8 @@
     <form id="form1" runat="server">
         <div>
             <h1>Participant Details</h1>
+            <a href="Login.aspx">Login Page</a> | <a href="ChooseRegistrationRole.aspx">Registration Page</a>
+
             <p>Name: <asp:Label ID="nameLabel" runat="server"/></p>
             <p>Username: <asp:Label ID="usernameLabel" runat="server"/></p>
             <p>Email: <asp:Label ID="emailLabel" runat="server"/></p>

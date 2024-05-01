@@ -10,6 +10,8 @@
     <form id="form1" runat="server">
         <div>
             <h1>Sponsor Page</h1>
+            <a href="Login.aspx">Login Page</a> | <a href="ChooseRegistrationRole.aspx">Registration Page</a>
+
             <p>Company Name: <asp:Label ID="companyNameLabel" runat="server"/></p>
             <p>Representative Name: <asp:Label ID="repNameLabel" runat="server"/></p>
             <p>Username: <asp:Label ID="usernameLabel" runat="server"/></p>

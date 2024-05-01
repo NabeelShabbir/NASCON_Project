@@ -10,6 +10,8 @@
     <form id="form1" runat="server">
         <div>
             <asp:Label ID="headingLabel" Text="Registration" runat="server" />
+            <a href="Login.aspx">Login Page</a> | <a href="ChooseRegistrationRole.aspx">Retry Registration Page</a>
+
 
             <p>Enter Full Name</p>
             <asp:TextBox ID="fullnameTextBox" Text="" runat="server" />

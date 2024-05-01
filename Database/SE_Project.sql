@@ -166,16 +166,14 @@ SELECT * FROM StudentBodyMembers;
 SELECT * FROM Categories;
 SELECT * FROM Events;
 
-<<<<<<< HEAD
 --UPDATE Categories SET secretaryUsername = NULL WHERE secretaryUsername = '2secr';
 --DELETE FROM AllUsers WHERE userRole = 2;
 --DELETE FROM StudentExecutives WHERE studentBodyID = 2;
 --DELETE FROM StudentBodies where studentBodyID = 2;
 --DELETE FROM StudentBodyMembers WHERE studentBodyID = 2;
-=======
-DELETE FROM AllUsers WHERE username = '0presi';
+
+DELETE FROM AllUsers WHERE username = 'babeel';
 DELETE FROM AllUsers WHERE username = 'par1';
->>>>>>> af878b8c5d23aec11cfcfa698197e013c6509121
 
 
 -- INSERT AllUsers (username, fullname, password, email, phone) VALUES ();

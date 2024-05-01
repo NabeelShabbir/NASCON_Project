@@ -17,4 +17,12 @@ public partial class Participant : System.Web.UI.Page
             phoneLabel.Text = Session["phone"].ToString();
         }
     }
+
+    protected void Button1_Click(object sender, EventArgs e)
+    {
+        Button btnUpdate = (Button)sender;
+        string username = btnUpdate.CommandArgument;
+        // Redirect to FacultyDetails.aspx with the username as a query parameter
+        Response.Redirect("RegEvent_Participant.aspx?username=" + username);
+    }
 }

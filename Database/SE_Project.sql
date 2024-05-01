@@ -3,16 +3,16 @@ create database NASCON_MS;
 use NASCON_MS;
 
 
---drop table AllUsers;
---drop table Participants;
---drop table Sponsors;
---drop table FacultyMentors;
---drop table Administrators;
---drop table Categories;
---drop table Events;
---drop table StudentBodies;
---drop table StudentExecutives;
---drop table StudentBodyMembers;
+drop table AllUsers;
+drop table Participants;
+drop table Sponsors;
+drop table FacultyMentors;
+drop table Administrators;
+drop table Categories;
+drop table Events;
+drop table StudentBodies;
+drop table StudentExecutives;
+drop table StudentBodyMembers;
 
 
 
@@ -110,8 +110,8 @@ CREATE TABLE Events (
     headUsername VARCHAR(40), -- Username of the head of the event
 	mentorUsername VARCHAR(40),
     categoryName VARCHAR(40), -- Foreign key reference to Categories table
-    FOREIGN KEY (headUsername) REFERENCES StudentExecutives(username),
-    FOREIGN KEY (categoryName) REFERENCES Categories(categoryName),
+    --FOREIGN KEY (headUsername) REFERENCES StudentExecutives(username),
+    --FOREIGN KEY (categoryName) REFERENCES Categories(categoryName),
 );
 
 
@@ -173,6 +173,7 @@ SELECT * FROM Categories;
 SELECT * FROM Events;
 
 DELETE FROM AllUsers WHERE username = '0presi';
+DELETE FROM AllUsers WHERE username = 'par1';
 
 
 -- INSERT AllUsers (username, fullname, password, email, phone) VALUES ();
@@ -188,3 +189,9 @@ INSERT INTO FacultyMentors (username)
 VALUES ('user1'), ('user2'), ('user3');
 
 SELECT AU.username, AU.fullname, password, email, phone, company, cnic, category, package FROM AllUsers AU, Sponsors S WHERE AU.username = 'repp_sponsed';
+
+
+SELECT sbm.username, sbm.studentRole
+FROM StudentBodyMembers sbm
+JOIN StudentBodyMembers president ON sbm.studentBodyID = president.studentBodyID
+WHERE president.username = '0presi';

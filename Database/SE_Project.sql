@@ -169,6 +169,10 @@ DELETE FROM AllUsers WHERE username = 'repp_sponsed';
 DELETE FROM Sponsors WHERE username = 'repp_sponsed';
 
 
-UPDATE Sponsors SET company = 'Big Sponsorship', cnic = '6110119463854', category = 'CS', package='Gold' WHERE username = 'repp_sponsed';
+-- UPDATE Sponsors SET company = 'Big Sponsorship', cnic = '6110119463854', category = 'CS', package='Gold' WHERE username = 'repp_sponsed';
 
 -- INSERT AllUsers (username, fullname, password, email, phone) VALUES ();
+
+SELECT C.categoryName, C.mentorUsername FROM Categories C, FacultyMentors FM WHERE C.mentorUsername = FM.username;
+
+

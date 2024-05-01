@@ -16,6 +16,7 @@
                     <asp:BoundField DataField="fullname" HeaderText="Full Name" />
                     <asp:BoundField DataField="email" HeaderText="Email" />
                     <asp:BoundField DataField="phone" HeaderText="Phone" />
+                    
                     <asp:TemplateField HeaderText="Actions">
                         <ItemTemplate>
                             <asp:Button ID="btnDelete" runat="server" CommandName="Delete" Text="Delete" CommandArgument='<%# Eval("username") %>' />
@@ -23,6 +24,22 @@
                     </asp:TemplateField>
                 </Columns>
             </asp:GridView>
+
+            <p>Assigned Category: </p> <asp:Label ID="categoryLabel" runat="server" /> 
+            <asp:DropDownList ID="categoriesDropDownList" runat="server" AutoPostBack="true" OnSelectedIndexChanged="categoriesDropDownList_SelectedIndexChanged">
+                <asp:ListItem Text="-- Select Category --" Value="" />
+            </asp:DropDownList>
+            <asp:Label ID="selectedCategoryLabel" Text="Selected Category:" runat="server" />
+            <asp:Button ID="assignMentorCategory" Text="Assign Category" OnClick="assignFacultyCategoryMethod" runat="server" />
+
+            <p>Assigned Event: </p> <asp:Label ID="eventLabel" runat="server" />
+            <asp:DropDownList ID="eventsDropDownList" runat="server" AutoPostBack="true" OnSelectedIndexChanged="eventsDropDownList_SelectedIndexChanged">
+                <asp:ListItem Text="-- Select Event --" Value="" />
+            </asp:DropDownList>
+            <asp:Label ID="selectedEventLabel" Text="Selected Event:" runat="server" />
+            <asp:Button ID="assignMentorEvent" Text="Assign Event" OnClick="assignFacultyEventMethod" runat="server" />
+
+            
     
             <h2>Add Faculty</h2>
             <p>Enter Full Name</p>

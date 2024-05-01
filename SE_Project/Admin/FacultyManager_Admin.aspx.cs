@@ -11,6 +11,8 @@ public partial class FacultyManager_Admin : System.Web.UI.Page
         if (!IsPostBack)
         {
             BindGridView();
+            PopulateCategoriesDropDownList();
+            PopulateEventsDropDownList();
         }
     }
 
@@ -101,5 +103,56 @@ public partial class FacultyManager_Admin : System.Web.UI.Page
 
         // Rebind the GridView after deletion
         BindGridView();
+    }
+
+
+    // Buttons
+    protected void assignFacultyCategoryMethod(object sender, EventArgs e)
+    {
+
+    }
+    protected void assignFacultyEventMethod(object sender, EventArgs e)
+    {
+
+    }
+
+    // Drop Down Lists
+
+    protected void categoriesDropDownList_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        string selectedCategory = categoriesDropDownList.SelectedValue;
+
+        if (!string.IsNullOrEmpty(selectedCategory))
+        {
+            selectedCategoryLabel.Text = "Selected Category: " + selectedCategory;
+        }
+    }
+
+    protected void eventsDropDownList_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        string selectedEvent = eventsDropDownList.SelectedValue;
+
+        if (!string.IsNullOrEmpty(selectedEvent))
+        {
+            selectedEventLabel.Text = "Selected Event: " + selectedEvent;
+        }
+    }
+
+    protected void PopulateCategoriesDropDownList()
+    {
+        // Add predefined categories to the DropDownList
+        categoriesDropDownList.Items.Add(new ListItem("EE", "EE"));
+        categoriesDropDownList.Items.Add(new ListItem("CS", "CS"));
+        categoriesDropDownList.Items.Add(new ListItem("Business", "Business"));
+        categoriesDropDownList.Items.Add(new ListItem("Sports", "Sports"));
+        categoriesDropDownList.Items.Add(new ListItem("Social", "Social"));
+    }
+
+    protected void PopulateEventsDropDownList()
+    {
+        // Add predefined events to the DropDownList
+        eventsDropDownList.Items.Add(new ListItem("Event 1", "1"));
+        eventsDropDownList.Items.Add(new ListItem("Event 2", "2"));
+        // Get all the Events from the DB and add them to this DropDownList.
     }
 }

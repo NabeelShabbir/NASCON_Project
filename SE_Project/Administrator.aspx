@@ -25,7 +25,7 @@
              New event can be added or deleted by the Admin. Event should contain event name,
             event date, event time, venue, assigned faculty mentor and student head.
              Admin can also add or delete Sponsors.--%>
-
+            <a href="Admin/FacultyManager_Admin.aspx">Manage Faculty Mentors</a>
 
             <p>Create an Event?</p>
         </div>

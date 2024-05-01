@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
@@ -84,6 +85,26 @@ public partial class Faculty_Mentor : System.Web.UI.Page
         // Query the database to fetch details of the selected Student Executive Body
         // You can use ADO.NET or an ORM like Entity Framework for database operations
         // Once you have the data, populate the studentExecutivesDetails div with the information
+
+        string connString = System.Configuration.ConfigurationManager.ConnectionStrings["WebConnString"].ToString();
+        using (SqlConnection conn = new SqlConnection(connString))
+        {
+            conn.Open();
+
+            string query = @"SELECT TOP 8 sbm.username, sbm.studentRole FROM StudentBodyMembers sbm JOIN StudentBodyMembers president ON sbm.studentBodyID = president.studentBodyID WHERE president.username = @username;";
+            SqlCommand cmd = new SqlCommand(query, conn);
+            cmd.Parameters.AddWithValue("@username", selectedPresident);
+
+            DataTable dt = new DataTable();
+            using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+            {
+                da.Fill(dt);
+            }
+
+            studentExecutivesGridView.DataSource = dt;
+            studentExecutivesGridView.DataBind();
+        }
+
     }
 
     protected void addStudentBodyEventMethod(object sender, EventArgs e)

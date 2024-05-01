@@ -68,17 +68,19 @@ INSERT Categories (categoryName) VALUES
 ('Sports'),
 ('Social');
 
+
+CREATE TABLE StudentBodies (
+    studentBodyID INT PRIMARY KEY,
+    categoryName VARCHAR(40),
+	FOREIGN KEY (categoryName) REFERENCES Categories(categoryName),
+);
 CREATE TABLE StudentExecutives (
     username VARCHAR(40) PRIMARY KEY,
     studentRole VARCHAR(40),
     studentBodyID INT, -- Foreign key reference to StudentBodies table
     FOREIGN KEY (studentBodyID) REFERENCES StudentBodies(studentBodyID)
 );
-CREATE TABLE StudentBodies (
-    studentBodyID INT PRIMARY KEY,
-    categoryName VARCHAR(40),
-	FOREIGN KEY (categoryName) REFERENCES Categories(categoryName),
-);
+
 CREATE TABLE StudentBodyMembers (
     studentBodyID INT,
     username VARCHAR(40),
@@ -130,14 +132,6 @@ CREATE TABLE Events (
 ---- Execute the dynamic SQL to drop the foreign key constraints
 --EXEC sp_executesql @sql;
 ---------------------------------------------------------------------------
-
-
--- Make All the 5 Categories first: EE, CS, Business, Social, Sports.
-INSERT Categories (categoryName) VALUES ('Social');
-
-
-
-
 
 
 --CREATE TABLE Categories (
@@ -194,4 +188,8 @@ SELECT AU.username, AU.fullname, password, email, phone, company, cnic, category
 SELECT sbm.username, sbm.studentRole
 FROM StudentBodyMembers sbm
 JOIN StudentBodyMembers president ON sbm.studentBodyID = president.studentBodyID
+<<<<<<< HEAD
 WHERE president.username = '0presi';
+=======
+WHERE president.username = '0presi';
+>>>>>>> 8f7c77888f4c8d7a7c84343efbc19a6a12f01036

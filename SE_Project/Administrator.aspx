@@ -28,6 +28,9 @@
 
 
             <p>Create an Event?</p>
+            <p style="text-align: left">Manage Faculty:
+                <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Go to Faculty Manager" />
+            </p>
         </div>
     </form>
 </body>

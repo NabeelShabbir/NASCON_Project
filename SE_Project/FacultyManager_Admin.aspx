@@ -19,6 +19,7 @@
                     <asp:TemplateField HeaderText="Actions">
                         <ItemTemplate>
                             <asp:Button ID="btnDelete" runat="server" CommandName="Delete" Text="Delete" CommandArgument='<%# Eval("username") %>' />
+                            <asp:Button ID="btnUpdate" runat="server" Text="Update" OnClick="btnUpdate_Click" CommandArgument='<%# Eval("username") %>' />
                         </ItemTemplate>
                     </asp:TemplateField>
                 </Columns>

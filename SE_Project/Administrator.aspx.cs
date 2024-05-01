@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -16,5 +17,10 @@ public partial class Administrator : System.Web.UI.Page
             emailLabel.Text = Session["email"].ToString();
             phoneLabel.Text = Session["phone"].ToString();
         }
+    }
+
+    protected void Button1_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("FacultyManager_Admin.aspx");
     }
 }

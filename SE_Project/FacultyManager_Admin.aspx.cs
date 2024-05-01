@@ -30,6 +30,15 @@ public partial class FacultyManager_Admin : System.Web.UI.Page
         }
     }
 
+    protected void btnUpdate_Click(object sender, EventArgs e)
+    {
+        Button btnUpdate = (Button)sender;
+        string username = btnUpdate.CommandArgument;
+        // Redirect to FacultyDetails.aspx with the username as a query parameter
+        Response.Redirect("UpdateFaculty_Admin.aspx?username=" + username);
+    }
+
+
     protected void registerEventMethod(object sender, EventArgs e)
     {
         String connString = System.Configuration.ConfigurationManager.ConnectionStrings["WebConnString"].ToString();

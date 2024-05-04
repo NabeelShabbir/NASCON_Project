@@ -3,16 +3,16 @@ create database NASCON_MS;
 use NASCON_MS;
 
 
-drop table AllUsers;
-drop table Participants;
-drop table Sponsors;
-drop table FacultyMentors;
-drop table Administrators;
-drop table Categories;
-drop table Events;
-drop table StudentBodies;
-drop table StudentExecutives;
-drop table StudentBodyMembers;
+--drop table AllUsers;
+--drop table Participants;
+--drop table Sponsors;
+--drop table FacultyMentors;
+--drop table Administrators;
+--drop table Categories;
+--drop table Events;
+--drop table StudentBodies;
+--drop table StudentExecutives;
+--drop table StudentBodyMembers;
 
 
 
@@ -24,9 +24,14 @@ CREATE TABLE AllUsers (
 	password VARCHAR(40) NOT NULL,
 	email VARCHAR(40),
 	phone VARCHAR(40),
-	userRole INT NOT NULL,
+	userRole INT NOT NULL, 
 );
-
+--User Role Values:
+-- 1 : Admin 
+-- 2 : Student Exec
+-- 3 : Faculty 
+-- 4 : Sponsor
+-- 5 : Participant
 CREATE TABLE Administrators (
 	username VARCHAR(40) NOT NULL PRIMARY KEY,
 	FOREIGN KEY (username) REFERENCES AllUsers(username),
@@ -112,8 +117,8 @@ CREATE TABLE Events (
     headUsername VARCHAR(40), -- Username of the head of the event
 	mentorUsername VARCHAR(40),
     categoryName VARCHAR(40), -- Foreign key reference to Categories table
-    --FOREIGN KEY (headUsername) REFERENCES StudentExecutives(username),
-    --FOREIGN KEY (categoryName) REFERENCES Categories(categoryName),
+    FOREIGN KEY (headUsername) REFERENCES StudentExecutives(username),
+    FOREIGN KEY (categoryName) REFERENCES Categories(categoryName),
 );
 
 CREATE TABLE Tickets (
@@ -121,8 +126,8 @@ CREATE TABLE Tickets (
     eventID INT,
     username VARCHAR(40),
     registrationDate DATETIME DEFAULT GETDATE(),
-    --FOREIGN KEY (eventID) REFERENCES Events(eventID),
-    --FOREIGN KEY (username) REFERENCES AllUsers(username)
+    FOREIGN KEY (eventID) REFERENCES Events(eventID),
+    FOREIGN KEY (username) REFERENCES AllUsers(username)
 );
 
 
@@ -184,6 +189,8 @@ SELECT * FROM Events;
 
 DELETE FROM AllUsers WHERE username = 'hishhasan';
 DELETE FROM AllUsers WHERE username = 'par1';
+
+
 
 
 -- INSERT AllUsers (username, fullname, password, email, phone) VALUES ();

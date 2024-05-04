@@ -49,8 +49,8 @@
                 <Columns>
                     <asp:BoundField DataField="studentRole" HeaderText="Role" />
                     <asp:BoundField DataField="username" HeaderText="Username" />
-                    <asp:BoundField DataField="fullname" HeaderText="Full Name" />
-                    <asp:BoundField DataField="password" HeaderText="Password" />
+                    <%--<asp:BoundField DataField="fullname" HeaderText="Full Name" />
+                    <asp:BoundField DataField="password" HeaderText="Password" />--%>
                 </Columns>
             </asp:GridView>
 

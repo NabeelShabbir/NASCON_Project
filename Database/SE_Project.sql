@@ -169,6 +169,7 @@ SELECT * FROM Administrators;
 SELECT * FROM Participants;
 SELECT * FROM FacultyMentors;
 SELECT * FROM Sponsors;
+
 SELECT * FROM StudentExecutives;
 SELECT * FROM StudentBodies;
 SELECT * FROM StudentBodyMembers;
@@ -176,6 +177,13 @@ SELECT * FROM Categories;
 SELECT * FROM Events;
 SELECT * FROM Tickets;
 
+--UPDATE Categories SET secretaryUsername = NULL WHERE secretaryUsername = '2secr';
+--DELETE FROM AllUsers WHERE userRole = 2;
+--DELETE FROM StudentExecutives WHERE studentBodyID = 2;
+--DELETE FROM StudentBodies where studentBodyID = 2;
+--DELETE FROM StudentBodyMembers WHERE studentBodyID = 2;
+
+DELETE FROM AllUsers WHERE username = 'hishhasan';
 DELETE FROM AllUsers WHERE username = '0presi';
 DELETE FROM AllUsers WHERE username = 'par1';
 DELETE FROM Tickets WHERE username = 'par1';

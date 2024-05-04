@@ -19,8 +19,15 @@ public partial class Administrator : System.Web.UI.Page
         }
     }
 
+    protected void eventManagerMethod(object sender, EventArgs e)
+    {
+        Response.Redirect("Admin/EventManager_Admin.aspx");
+    }
+
     protected void Button1_Click(object sender, EventArgs e)
     {
         Response.Redirect("Admin/FacultyManager_Admin.aspx");
     }
+
+
 }

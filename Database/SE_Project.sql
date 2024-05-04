@@ -109,7 +109,7 @@ CREATE TABLE Sponsors (
 
 
 CREATE TABLE Events (
-    eventID INT PRIMARY KEY,
+    eventID INT IDENTITY(1,1) PRIMARY KEY,
     eventName VARCHAR(100) UNIQUE,
     date DATE NOT NULL,
     timing TIME NOT NULL,

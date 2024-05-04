@@ -89,8 +89,11 @@ public partial class Login : System.Web.UI.Page
                     Session["username"] = reader.GetString(1);
                     Session["fullname"] = reader.GetString(2);
                     Session["password"] = reader.GetString(3);
-                    Session["email"] = reader.GetString(4);
-                    Session["phone"] = reader.GetString(5);
+                    if (role != "Student Executive")
+                    {
+                        Session["email"] = reader.GetString(4);
+                        Session["phone"] = reader.GetString(5);
+                    }
                     Response.Redirect(role + ".aspx");
                 }
                 else

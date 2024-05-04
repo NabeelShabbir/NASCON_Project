@@ -14,8 +14,21 @@ public partial class Student_Executive : System.Web.UI.Page
         {
             usernameLabel.Text = Session["username"].ToString();
             nameLabel.Text = Session["fullname"].ToString();
-            emailLabel.Text = Session["email"].ToString();
-            phoneLabel.Text = Session["phone"].ToString();
+            if (Session["email"].ToString() is (not null))
+            {
+                emailLabel.Text = Session["email"].ToString();
+            } else
+            {
+                emailLabel.Text = "Unassigned, Ask a Faculty Mentor to assign one.";
+            }
+            if (Session["phone"].ToString() is (not null))
+            {
+                phoneLabel.Text = Session["phone"].ToString();
+            }
+            else
+            {
+                phoneLabel.Text = "Unassigned, Ask a Faculty Mentor to assign one.";
+            }
         }
     }
 }

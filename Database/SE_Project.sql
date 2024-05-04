@@ -174,16 +174,12 @@ SELECT * FROM StudentBodies;
 SELECT * FROM StudentBodyMembers;
 SELECT * FROM Categories;
 SELECT * FROM Events;
+SELECT * FROM Tickets;
 
---UPDATE Categories SET secretaryUsername = NULL WHERE secretaryUsername = '2secr';
---DELETE FROM AllUsers WHERE userRole = 2;
---DELETE FROM StudentExecutives WHERE studentBodyID = 2;
---DELETE FROM StudentBodies where studentBodyID = 2;
---DELETE FROM StudentBodyMembers WHERE studentBodyID = 2;
-
-DELETE FROM AllUsers WHERE username = 'babeel';
+DELETE FROM AllUsers WHERE username = '0presi';
 DELETE FROM AllUsers WHERE username = 'par1';
-
+DELETE FROM Tickets WHERE username = 'par1';
+INSERT INTO Tickets (eventID, username) VALUES ('2', 'hell')
 
 -- INSERT AllUsers (username, fullname, password, email, phone) VALUES ();
 
@@ -203,4 +199,8 @@ SELECT AU.username, AU.fullname, password, email, phone, company, cnic, category
 SELECT sbm.username, sbm.studentRole
 FROM StudentBodyMembers sbm
 JOIN StudentBodyMembers president ON sbm.studentBodyID = president.studentBodyID
-
+<<<<<<< HEAD
+WHERE president.username = '0presi';
+=======
+WHERE president.username = '0presi';
+>>>>>>> 8f7c77888f4c8d7a7c84343efbc19a6a12f01036

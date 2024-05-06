@@ -31,7 +31,13 @@ public partial class Sponsor : System.Web.UI.Page
                 categoryLabel.Text = reader.GetString(6);
                 packageLabel.Text = reader.GetString(7);
                 cnicLabel.Text = reader.GetString(5);
+            } else
+            {
+                Response.Write("<script>No Sponsors in DB Table</script>");
             }
+
+            cmd.Dispose();
+            conn.Close();
         }
     }
 }

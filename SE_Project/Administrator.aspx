@@ -30,7 +30,9 @@
              Admin can also add or delete Sponsors.--%>
 
 
-            <p>Manage Events:</p>
+            <p>Manage Events:
+                <asp:Button ID="eventsButton" Text="Go to Events Manager" OnClick="eventManagerMethod" runat="server" />
+            </p>
 
             <p style="text-align: left">Manage Faculty:
                 <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Go to Faculty Manager" />

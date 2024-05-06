@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -11,12 +12,36 @@ public partial class Participant : System.Web.UI.Page
     {
         if (!IsPostBack)
         {
-            usernameLabel.Text = Session["username"].ToString();
+            string username = Session["username"].ToString();
+            String connString = System.Configuration.ConfigurationManager.ConnectionStrings["WebConnString"].ToString();
+            SqlConnection conn = new SqlConnection(connString);
+
+            conn.Open();
+            string query = @"SELECT username, fullname, email, phone FROM AllUsers WHERE username = @username";
+            SqlCommand cmd = new SqlCommand(query, conn);
+            cmd.Parameters.AddWithValue("username", username);
+            
+            SqlDataReader reader = cmd.ExecuteReader();
+            if (reader.Read() && reader.HasRows)
+            {
+                usernameLabel.Text = reader["username"].ToString();
+                nameLabel.Text = reader["fullname"].ToString();
+                emailLabel.Text = reader["email"].ToString();
+                phoneLabel.Text = reader["phone"].ToString();
+            }
+            else
+            {
+                Response.Write("<script>No Participants in DB Table</script>");
+            }
+
+            cmd.Dispose();
+            conn.Close();
+        }
+
             nameLabel.Text = Session["fullname"].ToString();
             emailLabel.Text = Session["email"].ToString();
             phoneLabel.Text = Session["phone"].ToString();
             cnicLabel.Text = Session["cnic"].ToString();
-        }
     }
 
     protected void Button1_Click(object sender, EventArgs e)

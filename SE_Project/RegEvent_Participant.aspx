@@ -26,10 +26,15 @@
                 </Columns>
             </asp:GridView>
             <h1>Your Tickets</h1>
-            <asp:GridView ID="GridViewTickets" runat="server" AutoGenerateColumns="False" Width="100%">
+            <asp:GridView ID="GridViewTickets" runat="server" AutoGenerateColumns="False" Width="100%" OnRowCommand="GridViewTickets_RowCommand">
                 <Columns>
                     <asp:BoundField DataField="eventID" HeaderText="Event ID" />
                     <asp:BoundField DataField="eventName" HeaderText="Event Name" />
+                    <asp:TemplateField HeaderText="Actions">
+                        <ItemTemplate>
+                            <asp:Button ID="btnDelete" runat="server" Text="Delete" CommandName="DeleteTicket" CommandArgument='<%# Eval("eventID") %>' />
+                        </ItemTemplate>
+                    </asp:TemplateField>
                 </Columns>
             </asp:GridView>
             <h1>Food Deals</h1>

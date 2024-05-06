@@ -44,7 +44,7 @@ INSERT Administrators (username) VALUES ('Admin1');
 
 CREATE TABLE Participants (
 	username VARCHAR(40) NOT NULL PRIMARY KEY,
-	roll_no VARCHAR(40),
+	cnic VARCHAR(13),
 	FOREIGN KEY (username) REFERENCES AllUsers(username),
 );
 
@@ -130,6 +130,11 @@ CREATE TABLE Tickets (
     FOREIGN KEY (username) REFERENCES AllUsers(username)
 );
 
+CREATE TABLE FoodDeals(
+    username VARCHAR(40),
+	dealNumber INT
+);
+
 
 ---------------------------------------------------------------------------
 --DECLARE @tableName NVARCHAR(128) = 'StudentBodies'; -- Specify your table name here
@@ -169,7 +174,7 @@ CREATE TABLE Tickets (
 
 -- SELECT * FROM AllUsers INNER JOIN Participants ON AllUsers.username = Participants.username WHERE AllUsers.username = 'hishhasan' AND AllUsers.password = 'hasan123';
 
-SELECT * FROM AllUsers ORDER BY userID;
+SELECT * FROM AllUsers where userRole = 5 ORDER BY userID;
 SELECT * FROM Administrators;
 SELECT * FROM Participants;
 SELECT * FROM FacultyMentors;
@@ -184,9 +189,12 @@ SELECT * FROM Tickets;
 
 --UPDATE Categories SET secretaryUsername = NULL WHERE secretaryUsername = '2secr';
 --DELETE FROM AllUsers WHERE userRole = 2;
+DELETE FROM AllUsers WHERE username = 'user3';
+DELETE FROM Participants
 --DELETE FROM StudentExecutives WHERE studentBodyID = 2;
 --DELETE FROM StudentBodies where studentBodyID = 2;
 --DELETE FROM StudentBodyMembers WHERE studentBodyID = 2;
+DELETE FROM FacultyMentors
 
 DELETE FROM AllUsers WHERE username = 'hishhasan';
 DELETE FROM AllUsers WHERE username = '0presi';

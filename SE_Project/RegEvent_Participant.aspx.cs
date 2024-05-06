@@ -127,33 +127,88 @@ public partial class RegEvent_Participant : System.Web.UI.Page
 
     protected void ApplyDeal(int dealNumber)
     {
-        // Check if the user has any tickets for events
-        string username = usernameLabel.Text; // Assuming username is accessible from the label
-        if (HasTickets(username))
+        string username = usernameLabel.Text;
+
+        // Check if a deal already exists for the participant
+        if (HasDeal(username))
         {
-            // Implement logic to apply the selected deal
-            string dealMessage = "";
-            switch (dealNumber)
-            {
-                case 1:
-                    dealMessage = "3 Burgers, Fries, and 3 Drinks for Rs 1200 applied!";
-                    break;
-                case 2:
-                    dealMessage = "4 Burgers, Fries, and 4 Drinks for Rs 1500 applied!";
-                    break;
-                case 3:
-                    dealMessage = "1 Burger, Fries, and 1 Drink for Rs 500 applied!";
-                    break;
-            }
-            // Display message or perform further actions as needed
-            Response.Write("<script>alert('" + dealMessage + "');</script>");
+            // Update the existing deal
+            UpdateDeal(dealNumber, username);
         }
         else
         {
-            // Prompt the user to register for an event first
-            Response.Write("<script>alert('You need to register for an event before applying a food deal.');</script>");
+            // Insert a new deal
+            InsertDeal(dealNumber, username);
+        }
+
+        // Display message or perform further actions as needed
+        string dealMessage = GetDealMessage(dealNumber);
+        Response.Write("<script>alert('" + dealMessage + "');</script>");
+    }
+
+    protected bool HasDeal(string username)
+    {
+        string connectionString = System.Configuration.ConfigurationManager.ConnectionStrings["WebConnString"].ToString();
+
+        using (SqlConnection con = new SqlConnection(connectionString))
+        {
+            SqlCommand cmd = new SqlCommand("SELECT COUNT(*) FROM FoodDeals WHERE username = @username", con);
+            cmd.Parameters.AddWithValue("@username", username);
+
+            con.Open();
+            int dealCount = (int)cmd.ExecuteScalar();
+            return dealCount > 0;
         }
     }
+
+    protected void UpdateDeal(int dealNumber, string username)
+    {
+        string connectionString = System.Configuration.ConfigurationManager.ConnectionStrings["WebConnString"].ToString();
+
+        using (SqlConnection con = new SqlConnection(connectionString))
+        {
+            SqlCommand cmd = new SqlCommand("UPDATE FoodDeals SET dealNumber = @dealNumber WHERE username = @username", con);
+            cmd.Parameters.AddWithValue("@dealNumber", dealNumber);
+            cmd.Parameters.AddWithValue("@username", username);
+
+            con.Open();
+            cmd.ExecuteNonQuery();
+        }
+    }
+
+    protected void InsertDeal(int dealNumber, string username)
+    {
+        string connectionString = System.Configuration.ConfigurationManager.ConnectionStrings["WebConnString"].ToString();
+
+        using (SqlConnection con = new SqlConnection(connectionString))
+        {
+            SqlCommand cmd = new SqlCommand("INSERT INTO FoodDeals (username, dealNumber) VALUES (@username, @dealNumber)", con);
+            cmd.Parameters.AddWithValue("@username", username);
+            cmd.Parameters.AddWithValue("@dealNumber", dealNumber);
+
+            con.Open();
+            cmd.ExecuteNonQuery();
+        }
+    }
+
+    protected string GetDealMessage(int dealNumber)
+    {
+        string dealMessage = "";
+        switch (dealNumber)
+        {
+            case 1:
+                dealMessage = "3 Burgers, Fries, and 3 Drinks for Rs 1200 applied!";
+                break;
+            case 2:
+                dealMessage = "4 Burgers, Fries, and 4 Drinks for Rs 1500 applied!";
+                break;
+            case 3:
+                dealMessage = "1 Burger, Fries, and 1 Drink for Rs 500 applied!";
+                break;
+        }
+        return dealMessage;
+    }
+
 
     // Method to check if the user has any tickets for events
     protected bool HasTickets(string username)
@@ -176,6 +231,39 @@ public partial class RegEvent_Participant : System.Web.UI.Page
 
         string username = usernameLabel.Text;
         Response.Redirect("EntryTicket_Participant.aspx?username=" + username);
+    }
+
+
+    protected void GridViewTickets_RowCommand(object sender, GridViewCommandEventArgs e)
+    {
+        if (e.CommandName == "DeleteTicket")
+        {
+            int eventID = Convert.ToInt32(e.CommandArgument);
+            string username = usernameLabel.Text; // Assuming username is accessible from the label
+
+            // Delete the ticket from the database
+            DeleteTicket(eventID, username);
+
+            // Reload tickets data after deletion
+            LoadTickets(username);
+            LoadEvents(username);
+        }
+    }
+
+    protected void DeleteTicket(int eventID, string username)
+    {
+        // Replace "Your_Connection_String" with your actual connection string
+        string connectionString = System.Configuration.ConfigurationManager.ConnectionStrings["WebConnString"].ToString();
+
+        using (SqlConnection con = new SqlConnection(connectionString))
+        {
+            SqlCommand cmd = new SqlCommand("DELETE FROM Tickets WHERE eventID = @eventID AND username = @username", con);
+            cmd.Parameters.AddWithValue("@eventID", eventID);
+            cmd.Parameters.AddWithValue("@username", username);
+
+            con.Open();
+            cmd.ExecuteNonQuery();
+        }
     }
 
 }

@@ -15,6 +15,7 @@ public partial class Participant : System.Web.UI.Page
             nameLabel.Text = Session["fullname"].ToString();
             emailLabel.Text = Session["email"].ToString();
             phoneLabel.Text = Session["phone"].ToString();
+            cnicLabel.Text = Session["cnic"].ToString();
         }
     }
 

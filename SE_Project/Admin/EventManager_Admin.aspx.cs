@@ -65,12 +65,18 @@ public partial class Admin_EventManager_Admin : System.Web.UI.Page
 
         using (SqlConnection con = new SqlConnection(connectionString))
         {
-            //SqlCommand cmd = new SqlCommand("SELECT A.username, A.fullname, A.email, A.phone FROM AllUsers A INNER JOIN FacultyMentors F ON A.username = F.username", con);
-            //SqlDataAdapter da = new SqlDataAdapter(cmd);
-            //DataTable dt = new DataTable();
-            //da.Fill(dt);
-            //GridViewFaculty.DataSource = dt;
-            //GridViewFaculty.DataBind();
+            SqlCommand cmd = new SqlCommand("SELECT eventName, date, timing, venue, headUsername, mentorUsername FROM Events", con);
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            GridViewEvents.DataSource = dt;
+            GridViewEvents.DataBind();
         }
     }
+
+    protected void btnUpdate_Click (object sender, EventArgs e)
+    {
+
+    }
+
 }

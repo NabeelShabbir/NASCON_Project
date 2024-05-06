@@ -88,6 +88,9 @@ public partial class Registration : System.Web.UI.Page
             if (userRole == 4)
             {
                 Response.Redirect("SponsorDetails.aspx");
+            } else if (userRole == 5)
+            {
+                Response.Redirect("ParticipantDetails.aspx");
             } else
             {
                 Response.Redirect(role + ".aspx");

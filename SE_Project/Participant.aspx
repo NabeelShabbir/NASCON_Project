@@ -16,6 +16,8 @@
             <p>Username: <asp:Label ID="usernameLabel" runat="server"/></p>
             <p>Email: <asp:Label ID="emailLabel" runat="server"/></p>
             <p>Phone: <asp:Label ID="phoneLabel" runat="server"/></p>
+            <p>CNIC: <asp:Label ID="cnicLabel" runat="server"/></p>
+            
             <h1>Apply for an Event    <asp:Button ID="Button1" runat="server" Text="Apply Now" OnClick="Button1_Click" /></h1>
 
         </div>

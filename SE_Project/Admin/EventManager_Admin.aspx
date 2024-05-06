@@ -20,8 +20,10 @@
                     <asp:BoundField DataField="studentexec" HeaderText="Student Head" />
                     <asp:BoundField DataField="facultymentor" HeaderText="Faculty Mentor" />
                     <asp:TemplateField HeaderText="Actions">
-                        <ItemTemplate ID="btnUpdate" runat="server" Text="Update" OnClick="btnUpdate_Click" CommandArgument='<%# Eval("eventname") %>' />
-                        <ItemTemplate ID="btnDelete" runat="server" Text="Delete" OnClick="btnDelete_Click" CommandArgument='<%# Eval("eventname") %>' />
+                        <ItemTemplate>
+                            <asp:Button ID="btnUpdate" runat="server" Text="Update" OnClick="btnUpdate_Click" CommandArgument='<%# Eval("eventname") %>' />
+                            <asp:Button ID="btnDelete" runat="server" Text="Delete" CommandName="Delete" CommandArgument='<%# Eval("eventname") %>' />
+                        </ItemTemplate>
                     </asp:TemplateField>
                 </Columns>
             </asp:GridView>

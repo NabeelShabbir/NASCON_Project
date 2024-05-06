@@ -45,6 +45,7 @@ INSERT Administrators (username) VALUES ('Admin1');
 CREATE TABLE Participants (
 	username VARCHAR(40) NOT NULL PRIMARY KEY,
 	roll_no VARCHAR(40),
+	cnic VARCHAR(13),
 	FOREIGN KEY (username) REFERENCES AllUsers(username),
 );
 
@@ -109,7 +110,7 @@ CREATE TABLE Sponsors (
 
 
 CREATE TABLE Events (
-    eventID INT IDENTITY(1,1) PRIMARY KEY,
+    eventID INT PRIMARY KEY,
     eventName VARCHAR(100) UNIQUE,
     date DATE NOT NULL,
     timing TIME NOT NULL,

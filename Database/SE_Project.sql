@@ -109,7 +109,7 @@ CREATE TABLE Sponsors (
 
 
 CREATE TABLE Events (
-    eventID INT PRIMARY KEY,
+    eventID INT PRIMARY KEY IDENTITY,
     eventName VARCHAR(100) UNIQUE,
     date DATE NOT NULL,
     timing TIME NOT NULL,
@@ -118,8 +118,9 @@ CREATE TABLE Events (
 	mentorUsername VARCHAR(40),
     categoryName VARCHAR(40), -- Foreign key reference to Categories table
     FOREIGN KEY (headUsername) REFERENCES StudentExecutives(username),
-    FOREIGN KEY (categoryName) REFERENCES Categories(categoryName),
+    FOREIGN KEY (categoryName) REFERENCES Categories(categoryName)
 );
+
 
 CREATE TABLE Tickets (
     ticketID INT PRIMARY KEY IDENTITY(1,1),

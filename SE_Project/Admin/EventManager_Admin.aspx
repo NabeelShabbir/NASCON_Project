@@ -21,7 +21,6 @@
                     <asp:BoundField DataField="facultymentor" HeaderText="Faculty Mentor" />
                     <asp:TemplateField HeaderText="Actions">
                         <ItemTemplate>
-                            <asp:Button ID="btnUpdate" runat="server" Text="Update" OnClick="btnUpdate_Click" CommandArgument='<%# Eval("eventname") %>' />
                             <asp:Button ID="btnDelete" runat="server" Text="Delete" CommandName="Delete" CommandArgument='<%# Eval("eventname") %>' />
                         </ItemTemplate>
                     </asp:TemplateField>
@@ -31,8 +30,10 @@
 
             <h1>Add New Events</h1>
             <p>Enter Event Name:</p> <asp:TextBox ID="eventNameTextBox" runat="server" />
-            <p>Enter Event Date:</p> <asp:TextBox ID="dateTextBox" runat="server" />
-            <p>Enter Event Timings:</p> <asp:TextBox ID="timingTextBox" runat="server" />
+            <p>Enter Event Date:</p> <asp:TextBox ID="dateTextBox" runat="server" ReadOnly="true" />
+            <asp:Calendar ID="EventCalendar" runat="server" OnSelectionChanged="EventCalendar_SelectionChanged" Visible="false"></asp:Calendar>
+            <asp:Button ID="ShowCalendarButton" runat="server" Text="Select Date" OnClick="ShowCalendarButton_Click" />
+            <p>Enter Event Timings:</p> <input type="time" id="timingTextBox" runat="server" />
             <p>Enter Event Venue:</p> <asp:TextBox ID="venueTextBox" runat="server" />
             <p>Enter Event Category:</p> <asp:TextBox ID="categoryTextBox" runat="server" />
             <p>Enter Student Head Username:</p> <asp:TextBox ID="studentexecTextBox" runat="server" />

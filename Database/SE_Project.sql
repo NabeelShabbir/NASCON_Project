@@ -229,3 +229,6 @@ WHERE president.username = '0presi';
 =======
 WHERE president.username = '0presi';
 >>>>>>> 8f7c77888f4c8d7a7c84343efbc19a6a12f01036
+
+
+SELECT Participants.username, fullname, email, phone, cnic FROM AllUsers JOIN Participants ON Participants.username = AllUsers.username WHERE Participants.username = 'hishhasan'

@@ -4,9 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>Login Page</title>
-    <%-- Link Bootstrap CSS --%>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" />
-    <%-- Link custom CSS stylesheet --%>
     <link href="styles.css" rel="stylesheet" />
 </head>
 <body>
@@ -21,11 +19,27 @@
                     <asp:TextBox ID="passwordTextBox" CssClass="form-control" runat="server" />
                     <p>Choose one of the following roles:</p>
                     <div class="radio">
-                        <asp:RadioButton ID="adminRadioButton" Text="Administrator" GroupName="userRole" CssClass="form-check-input" runat="server" />
-                        <asp:RadioButton ID="studentexecRadioButton" Text="Student Executive" GroupName="userRole" CssClass="form-check-input" runat="server" />
-                        <asp:RadioButton ID="facultyRadioButton" Text="Faculty Mentor" GroupName="userRole" CssClass="form-check-input" runat="server" />
-                        <asp:RadioButton ID="participantRadioButton" Text="Participant" GroupName="userRole" CssClass="form-check-input" runat="server" />
-                        <asp:RadioButton ID="sponsorRadioButton" Text="Sponsor" GroupName="userRole" CssClass="form-check-input" runat="server" />
+                        <div class="radio">
+                            <asp:RadioButton ID="adminRadioButton" Text="Administrator" GroupName="userRole" CssClass="form-check-input" runat="server" />
+                            <div class="form-check-label">Administrator</div>
+                        </div>
+                        <div class="radio">
+                            <asp:RadioButton ID="studentexecRadioButton" Text="Student Executive" GroupName="userRole" CssClass="form-check-input" runat="server" />
+                            <div class="form-check-label">Student Executive</div>
+                        </div>
+                        <div class="radio">
+                            <asp:RadioButton ID="facultyRadioButton" Text="Faculty Mentor" GroupName="userRole" CssClass="form-check-input mb-2" runat="server" />
+                            <div class="form-check-label">Faculty Mentor</div>
+                                
+                        </div>
+                        <div class="radio">
+                            <asp:RadioButton ID="participantRadioButton" Text="Participant" GroupName="userRole" CssClass="form-check-input mb-2" runat="server" />
+                            <div class="form-check-label">Participant</div>
+                        </div>
+                        <div class="radio">
+                            <asp:RadioButton ID="sponsorRadioButton" Text="Sponsor" GroupName="userRole" CssClass="form-check-input mb-2" runat="server" />
+                            <div class="form-check-label">Sponsor</div>
+                        </div>
                     </div>
                     <asp:Button ID="loginButton" Text="Login" CssClass="btn btn-primary" runat="server" OnClick="loginEventMethod" />
                     <br />

@@ -17,7 +17,7 @@ public partial class Participant : System.Web.UI.Page
             SqlConnection conn = new SqlConnection(connString);
 
             conn.Open();
-            string query = @"SELECT username, fullname, email, phone FROM AllUsers WHERE username = @username";
+            string query = @"SELECT AU.username, fullname, email, phone, cnic FROM AllUsers AU JOIN Participants P ON P.username = AU.username WHERE P.username = @username";
             SqlCommand cmd = new SqlCommand(query, conn);
             cmd.Parameters.AddWithValue("username", username);
             
@@ -28,6 +28,7 @@ public partial class Participant : System.Web.UI.Page
                 nameLabel.Text = reader["fullname"].ToString();
                 emailLabel.Text = reader["email"].ToString();
                 phoneLabel.Text = reader["phone"].ToString();
+                cnicLabel.Text = reader["cnic"].ToString();
             }
             else
             {
@@ -37,11 +38,6 @@ public partial class Participant : System.Web.UI.Page
             cmd.Dispose();
             conn.Close();
         }
-
-            nameLabel.Text = Session["fullname"].ToString();
-            emailLabel.Text = Session["email"].ToString();
-            phoneLabel.Text = Session["phone"].ToString();
-            cnicLabel.Text = Session["cnic"].ToString();
     }
 
     protected void Button1_Click(object sender, EventArgs e)

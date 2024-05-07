@@ -21,24 +21,23 @@
                     <div class="radio">
                         <div class="radio">
                             <asp:RadioButton ID="adminRadioButton" Text="Administrator" GroupName="userRole" CssClass="form-check-input" runat="server" />
-                            <div class="form-check-label">Administrator</div>
+                            <div class="form-check-label">   </div>
                         </div>
                         <div class="radio">
                             <asp:RadioButton ID="studentexecRadioButton" Text="Student Executive" GroupName="userRole" CssClass="form-check-input" runat="server" />
-                            <div class="form-check-label">Student Executive</div>
+                            <div class="form-check-label">   </div>
                         </div>
                         <div class="radio">
                             <asp:RadioButton ID="facultyRadioButton" Text="Faculty Mentor" GroupName="userRole" CssClass="form-check-input mb-2" runat="server" />
-                            <div class="form-check-label">Faculty Mentor</div>
-                                
+                            <div class="form-check-label">   </div>
                         </div>
                         <div class="radio">
                             <asp:RadioButton ID="participantRadioButton" Text="Participant" GroupName="userRole" CssClass="form-check-input mb-2" runat="server" />
-                            <div class="form-check-label">Participant</div>
+                            <div class="form-check-label">   </div>
                         </div>
                         <div class="radio">
                             <asp:RadioButton ID="sponsorRadioButton" Text="Sponsor" GroupName="userRole" CssClass="form-check-input mb-2" runat="server" />
-                            <div class="form-check-label">Sponsor</div>
+                            <div class="form-check-label">   </div>
                         </div>
                     </div>
                     <asp:Button ID="loginButton" Text="Login" CssClass="btn btn-primary" runat="server" OnClick="loginEventMethod" />

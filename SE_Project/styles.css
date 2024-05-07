@@ -1,0 +1,35 @@
+﻿
+/*---------LOGIN---------*/
+/* Center login container vertically and horizontally */
+.container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Apply styles to login container */
+.login-container {
+    width: 400px;
+    padding: 20px;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+}
+
+/* Style login heading */
+.login-heading {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Style login form elements */
+.login-form p {
+    margin-bottom: 10px;
+}
+
+/* Style radio buttons */
+.radio {
+    display: block;
+    margin-bottom: 10px;
+}
+

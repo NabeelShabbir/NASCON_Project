@@ -18,29 +18,29 @@
                     <p>Enter Password</p>
                     <asp:TextBox ID="passwordTextBox" CssClass="form-control" runat="server" />
                     <p>Choose one of the following roles:</p>
+
                     <div class="radio">
-                        <div class="radio">
-                            <asp:RadioButton ID="adminRadioButton" Text="Administrator" GroupName="userRole" CssClass="form-check-input" runat="server" />
-                            <div class="form-check-label">   </div> 
-                            <%-- I have added a hidden character by clicking ALT+255 in these form-check-labels pls dont delete anything --%>
-                        </div>
-                        <div class="radio">
-                            <asp:RadioButton ID="studentexecRadioButton" Text="Student Executive" GroupName="userRole" CssClass="form-check-input" runat="server" />
-                            <div class="form-check-label">   </div>
-                        </div>
-                        <div class="radio">
-                            <asp:RadioButton ID="facultyRadioButton" Text="Faculty Mentor" GroupName="userRole" CssClass="form-check-input mb-2" runat="server" />
-                            <div class="form-check-label">   </div>
-                        </div>
-                        <div class="radio">
-                            <asp:RadioButton ID="participantRadioButton" Text="Participant" GroupName="userRole" CssClass="form-check-input mb-2" runat="server" />
-                            <div class="form-check-label">   </div>
-                        </div>
-                        <div class="radio">
-                            <asp:RadioButton ID="sponsorRadioButton" Text="Sponsor" GroupName="userRole" CssClass="form-check-input mb-2" runat="server" />
-                            <div class="form-check-label">   </div>
-                        </div>
+                        <asp:RadioButton ID="adminRadioButton" Text="Administrator" GroupName="userRole" CssClass="form-check-input" runat="server" />
+                        <div class="form-check-label">   </div> 
+                        <%-- I have added a hidden character by clicking ALT+255 in these form-check-labels pls dont delete anything --%>
                     </div>
+                    <div class="radio">
+                        <asp:RadioButton ID="studentexecRadioButton" Text="Student Executive" GroupName="userRole" CssClass="form-check-input" runat="server" />
+                        <div class="form-check-label">   </div>
+                    </div>
+                    <div class="radio">
+                        <asp:RadioButton ID="facultyRadioButton" Text="Faculty Mentor" GroupName="userRole" CssClass="form-check-input mb-2" runat="server" />
+                        <div class="form-check-label">   </div>
+                    </div>
+                    <div class="radio">
+                        <asp:RadioButton ID="participantRadioButton" Text="Participant" GroupName="userRole" CssClass="form-check-input mb-2" runat="server" />
+                        <div class="form-check-label">   </div>
+                    </div>
+                    <div class="radio">
+                        <asp:RadioButton ID="sponsorRadioButton" Text="Sponsor" GroupName="userRole" CssClass="form-check-input mb-2" runat="server" />
+                        <div class="form-check-label">   </div>
+                    </div>
+
                     <asp:Button ID="loginButton" Text="Login" CssClass="btn btn-primary" runat="server" OnClick="loginEventMethod" />
                     <br />
                     <p>Don't have an Account? You can Register Here:</p>

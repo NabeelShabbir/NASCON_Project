@@ -23,6 +23,11 @@
 }
 
 /* Style login form elements */
+/*.login-form {
+    border:dashed;
+    border-top-color:aqua;
+}*/
+
 .login-form p {
     margin-bottom: 10px;
 }
@@ -33,3 +38,19 @@
     margin-bottom: 10px;
 }
 
+
+/*--------REGISTRATION-------------*/
+.registration-container {
+    max-width: 400px;
+    margin: auto;
+}
+
+.registration-heading {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.label-heading {
+    font-size: 40px;
+    font-style: italic;
+}

@@ -4,27 +4,35 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
+    <title>Registration</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="styles.css" rel="stylesheet" />
 </head>
 <body>
-    <form id="form1" runat="server">
-        <div>
-            <asp:Label ID="headingLabel" Text="Registration" runat="server" />
-            <a href="Login.aspx">Login Page</a> | <a href="ChooseRegistrationRole.aspx">Retry Registration Page</a>
-
-
-            <p>Enter Full Name</p>
-            <asp:TextBox ID="fullnameTextBox" Text="" runat="server" />
-            <p>Enter Email</p>
-            <asp:TextBox ID="emailTextBox" Text="" runat="server" />
-            <p>Enter Phone Number</p>
-            <asp:TextBox ID="phoneNumTextBox" Text="" runat="server" />            
-            <p>Enter Username</p>
-            <asp:TextBox ID="usernameTextBox" Text="" runat="server" />            
-            <p>Enter Password</p>
-            <asp:TextBox ID="passwordTextBox" Text="" runat="server" />
-
-            <asp:Button ID="registerButton" Text="Register" runat="server" OnClick="registerEventMethod" />
+    <form id="form1" runat="server" class="container mt-5">
+        <div class="registration-container">
+            <asp:Label ID="headingLabel" CssClass="label-heading" runat="server" Text="Registration" />
+            <div class="form-group">
+                <label for="fullnameTextBox">Full Name</label>
+                <asp:TextBox ID="fullnameTextBox" CssClass="form-control" Text="" runat="server" />
+            </div>
+            <div class="form-group">
+                <label for="emailTextBox">Email</label>
+                <asp:TextBox ID="emailTextBox" CssClass="form-control" Text="" runat="server" />
+            </div>
+            <div class="form-group">
+                <label for="phoneNumTextBox">Phone Number</label>
+                <asp:TextBox ID="phoneNumTextBox" CssClass="form-control" Text="" runat="server" />
+            </div>
+            <div class="form-group">
+                <label for="usernameTextBox">Username</label>
+                <asp:TextBox ID="usernameTextBox" CssClass="form-control" Text="" runat="server" />
+            </div>
+            <div class="form-group">
+                <label for="passwordTextBox">Password</label>
+                <asp:TextBox ID="passwordTextBox" CssClass="form-control" Text="" runat="server" />
+            </div>
+            <asp:Button ID="registerButton" Text="Register" CssClass="btn btn-primary" runat="server" OnClick="registerEventMethod" />
         </div>
     </form>
 </body>

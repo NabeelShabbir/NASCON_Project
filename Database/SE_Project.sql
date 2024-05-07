@@ -42,7 +42,6 @@ INSERT AllUsers (username, fullname, password, email, phone, userRole) VALUES ('
 INSERT Administrators (username) VALUES ('Admin1');
 
 
-
 CREATE TABLE Participants (
 	username VARCHAR(40) NOT NULL PRIMARY KEY,
 	cnic VARCHAR(13),
@@ -136,6 +135,7 @@ CREATE TABLE FoodDeals(
 	dealNumber INT
 );
 
+select * from FoodDeals
 
 ---------------------------------------------------------------------------
 --DECLARE @tableName NVARCHAR(128) = 'StudentBodies'; -- Specify your table name here

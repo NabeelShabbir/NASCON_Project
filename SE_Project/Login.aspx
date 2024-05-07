@@ -21,7 +21,8 @@
                     <div class="radio">
                         <div class="radio">
                             <asp:RadioButton ID="adminRadioButton" Text="Administrator" GroupName="userRole" CssClass="form-check-input" runat="server" />
-                            <div class="form-check-label">   </div>
+                            <div class="form-check-label">   </div> 
+                            <%-- I have added a hidden character by clicking ALT+255 in these form-check-labels pls dont delete anything --%>
                         </div>
                         <div class="radio">
                             <asp:RadioButton ID="studentexecRadioButton" Text="Student Executive" GroupName="userRole" CssClass="form-check-input" runat="server" />

@@ -13,15 +13,15 @@
             <h2 class="registration-heading">Choose Registration Role</h2>
             <div class="form-check">
                 <asp:RadioButton ID="facultyRadioButton" Text="Faculty Mentor" GroupName="userRole" CssClass="form-check-input" runat="server" />
-                <label class="form-check-label" for="facultyRadioButton">Faculty Mentor</label>
+                <label class="form-check-label" for="facultyRadioButton">   </label>
             </div>
             <div class="form-check">
                 <asp:RadioButton ID="participantRadioButton" Text="Participant" GroupName="userRole" CssClass="form-check-input" runat="server" />
-                <label class="form-check-label" for="participantRadioButton">Participant</label>
+                <label class="form-check-label" for="participantRadioButton">   </label>
             </div>
             <div class="form-check">
                 <asp:RadioButton ID="sponsorRadioButton" Text="Sponsor" GroupName="userRole" CssClass="form-check-input" runat="server" />
-                <label class="form-check-label" for="sponsorRadioButton">Sponsor</label>
+                <label class="form-check-label" for="sponsorRadioButton">   </label>
             </div>
             <asp:Button ID="roleButton" Text="Submit" CssClass="btn btn-primary" OnClick="chooseRoleButton" runat="server" />
         </div>

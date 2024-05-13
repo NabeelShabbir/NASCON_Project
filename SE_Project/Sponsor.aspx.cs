@@ -17,7 +17,7 @@ public partial class Sponsor : System.Web.UI.Page
             SqlConnection conn = new SqlConnection(connString);
 
             conn.Open();
-            string query = @"SELECT AU.username, AU.fullname, email, phone, company, cnic, category, package FROM AllUsers AU, Sponsors S WHERE AU.username = @username";
+            string query = @"SELECT AU.username, AU.fullname, email, phone, company, cnic, category, package FROM AllUsers AU JOIN Sponsors S ON S.username = AU.username WHERE S.username = @username;";
             SqlCommand cmd = new SqlCommand(query, conn);
             cmd.Parameters.AddWithValue("@username", usernameLabel.Text);
 

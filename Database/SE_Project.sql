@@ -53,6 +53,7 @@ CREATE TABLE FacultyMentors (
 	FOREIGN KEY (username) REFERENCES AllUsers(username),
 
 );
+
 CREATE TABLE Categories (
     categoryName VARCHAR(40) PRIMARY KEY,
 	mentorUsername VARCHAR(40),
@@ -176,7 +177,7 @@ select * from FoodDeals
 
 -- SELECT * FROM AllUsers INNER JOIN Participants ON AllUsers.username = Participants.username WHERE AllUsers.username = 'hishhasan' AND AllUsers.password = 'hasan123';
 
-SELECT * FROM AllUsers where userRole = 5 ORDER BY userID;
+SELECT * FROM AllUsers where userRole = 4 ORDER BY userID;
 SELECT * FROM Administrators;
 SELECT * FROM Participants;
 SELECT * FROM FacultyMentors;
@@ -189,6 +190,7 @@ SELECT * FROM Categories;
 SELECT * FROM Events;
 SELECT * FROM Tickets;
 
+SELECT AU.username, AU.fullname, email, phone, company, cnic, category, package FROM AllUsers AU JOIN Sponsors S ON S.username = AU.username WHERE S.username = 'sp3';
 --UPDATE Categories SET secretaryUsername = NULL WHERE secretaryUsername = '2secr';
 --DELETE FROM AllUsers WHERE userRole = 2;
 DELETE FROM AllUsers WHERE username = 'user3';
